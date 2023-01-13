@@ -1,0 +1,9 @@
+ {% for item in products %}
+       {% for iteme in item.ProduitTarifs %} 
+
+ {% if iteme.Tarif.id == 1 %}
+    <tr><td id='count'>1</td><td>{{ item.Produit  }}</td><td>{{ iteme.TarifTtc }} Dh</td>{{iteme.TarifTtc}}<td id='prixtotale'></td></tr>
+
+    {% endif %}
+{% endfor %}
+{% endfor %}

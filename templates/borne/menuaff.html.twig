@@ -1,0 +1,747 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello IndexController!{% endblock %}
+
+{% block body %}
+
+ 
+<body><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>L'Casis</title>
+	<link rel="icon" href="../../img/Fevicon.png" type="image/png">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+<!-- Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+<!-- Bootstrap core CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+<!-- Material Design Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../../vendors/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="{{ asset('../css/borne/style.css') }}">
+
+
+  <style>
+ .swal2-popup{
+
+    font-size: 20px;
+}
+  </style>
+</head>
+<body>
+  <div class="container" >
+   <section id="our_menu" class="pt-5 pb-5">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="page_title text-center mb-4">
+						<h1>our menu</h1>
+						<div class="single_line"></div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<ul class="nav nav-tabs menu_tab mb-5" id="myTab" role="tablist">
+					<li class="nav-item">
+						<a class="nav-link active" id="breakfast-tab" data-toggle="tab" href="#Boissons" role="tab"><i class="fas fa-coffee pr-3"></i>Boissons</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" id="lunch-tab" data-toggle="tab" href="#Boulangerie" role="tab"><i class="fas fa-bread-slice pr-3"></i>Boulangerie</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" id="dinner-tab" data-toggle="tab" href="#Entrées" role="tab"><i class="fas fa-seedling pr-3"></i>Entrées</a>
+					</li>
+							<li class="nav-item">
+						<a class="nav-link" id="dinner-tab" data-toggle="tab" href="#Plats" role="tab"><i class="fas fa-hamburger pr-3"></i>Plats</a>
+					</li>
+					</li>
+							<li class="nav-item">
+						<a class="nav-link" id="dinner-tab" data-toggle="tab" href="#Desserts" role="tab"><i class="fas fa-cheese pr-3"></i>Desserts</a>
+					</li>
+				</ul>
+        	</div>
+			<div class="row">
+				<div class="tab-content col-lg-12" id="myTabContent">
+					<div class="tab-pane fade show active" id="Boissons" role="tabpanel" aria-labelledby="breakfast-tab">
+																<div class="grid-container">
+                                                    {% for cartelog in cartelogs %}
+													{% if cartelog.Produit.FamilleSousC.FamilleC.id == 1 %}
+														{# {{dump(cartelog.Produit.FamilleSousC)}}
+													{% endif %} #}
+
+											<article id="3685" class="location-listing">
+
+									
+														<div class="card">
+															<div class="card-header">
+															<p class="prod-price"><b>X</b><strong class="prod-price h2 {{cartelog.Produit.IdProduit}}" >{{cartelog.StockReste}}</strong></p>
+                              {% if cartelog.StockReste == 0 %}
+															<div class="text-center">
+															     <input type="text" class="fproduct" value="{{cartelog.Produit.IdProduit}}" hidden>
+																<img src="..\..\..\Images\Carte\{{ cartelog.Produit.Photo }}"  style="width:45px;position: relative;top: 0;left: 0;height:100px;"alt="Can of bug spray" class="card-img">
+																<img src="..\..\..\Images\Carte\Interdit.png" style="width: 118px;height: 128px;position: absolute;top: 22px;px;left: 119px;opacity: 0.7;" alt="Can of bug spray" class="card-img">
+                                
+                              {% else %}
+															<div class="text-center" id="product">
+															     <input type="text" class="fproduct" value="{{cartelog.Produit.IdProduit}}" hidden>
+																<img src="..\..\..\Images\Carte\{{ cartelog.Produit.Photo }}"  style="width:45px;position: relative;top: 0;left: 0;height:100px;"alt="Can of bug spray" class="card-img">
+																<img src="..\..\..\Images\Carte\Interdit.png" id="interditpic{{cartelog.Produit.IdProduit}}" style="width: 118px;height: 128px;position: absolute;top: 22px;px;left: 119px;opacity: 0.7;display:none;" alt="Can of bug spray" class="card-img">
+                                
+                              {% endif %}
+																</div>
+																<br>
+																<br>
+																 {% for iteme in cartelog.Produit.produitTarifs %} 
+                                                                     {% if iteme.Tarif.id == "1"  %}
+																<h3 class="card-title text-center text-info price" ><b>{{iteme.TarifTtc}} Dh</b></h3>
+																  {% endif %}
+                                                                 {% endfor %}
+															</div>															
+															<div class="card-body">
+																<h3 class="card-title text-center"><b>{{ cartelog.Produit.Produit }}</b><sup></h3>																													
+															</div>														
+														</div>
+
+											</article>
+											{% endif %}
+
+										{% endfor %}	
+
+										</div>
+					</div>
+					<div class="tab-pane fade" id="Boulangerie" role="tabpanel" aria-labelledby="lunch-tab">
+															<div class="grid-container">
+                                           {% for cartelog in cartelogs %}
+													{% if cartelog.Produit.FamilleSousC.FamilleC.id == 4 %}
+											<article id="3685" class="location-listing">
+
+									
+														<div class="card">
+															<div class="card-header">
+															<p class="prod-price"><b>X</b><strong class="prod-price h2 {{cartelog.Produit.IdProduit}}" >{{cartelog.StockReste}}</strong></p>
+                              {% if cartelog.StockReste == 0 %}
+															<div class="text-center">
+															     <input type="text" class="fproduct" value="{{cartelog.Produit.IdProduit}}" hidden>
+																<img src="..\..\..\Images\Carte\{{ cartelog.Produit.Photo }}"  style="width:45px;position: relative;top: 0;left: 0;height:100px;"alt="Can of bug spray" class="card-img">
+																<img src="..\..\..\Images\Carte\Interdit.png" style="width: 118px;height: 128px;position: absolute;top: 22px;px;left: 119px;opacity: 0.7;" alt="Can of bug spray" class="card-img">
+                                
+                              {% else %}
+															<div class="text-center" id="product">
+															     <input type="text" class="fproduct" value="{{cartelog.Produit.IdProduit}}" hidden>
+																<img src="..\..\..\Images\Carte\{{ cartelog.Produit.Photo }}"  style="width:45px;position: relative;top: 0;left: 0;height:100px;"alt="Can of bug spray" class="card-img">
+																<img src="..\..\..\Images\Carte\Interdit.png" id="interditpic{{cartelog.Produit.IdProduit}}" style="width: 118px;height: 128px;position: absolute;top: 22px;px;left: 119px;opacity: 0.7;display:none;" alt="Can of bug spray" class="card-img">
+                                
+                              {% endif %}
+																</div>
+																<br>
+																<br>
+																 {% for iteme in cartelog.Produit.produitTarifs %} 
+                                                                     {% if iteme.Tarif.id == "1"  %}
+																<h3 class="card-title text-center text-info price" ><b>{{iteme.TarifTtc}} Dh</b></h3>
+																  {% endif %}
+                                                                 {% endfor %}
+															</div>															
+															<div class="card-body">
+																<h3 class="card-title text-center"><b>{{ cartelog.Produit.Produit }}</b><sup></h3>																													
+															</div>														
+														</div>
+
+											</article>
+												{% endif %}
+
+										{% endfor %}
+									</div>
+									<!-- end grid container -->
+					</div>
+
+					<div class="tab-pane fade" id="Entrées" role="tabpanel" aria-labelledby="dinner-tab">
+												<div class="grid-container">
+                                           {% for cartelog in cartelogs %}
+													{% if cartelog.Produit.FamilleSousC.FamilleC.id == 3 %}
+											<article id="3685" class="location-listing">
+
+									
+														<div class="card">
+															<div class="card-header">
+															<p class="prod-price"><b>X</b><strong class="prod-price h2 {{cartelog.Produit.IdProduit}}" >{{cartelog.StockReste}}</strong></p>
+                              {% if cartelog.StockReste == 0 %}
+															<div class="text-center">
+															     <input type="text" class="fproduct" value="{{cartelog.Produit.IdProduit}}" hidden>
+																<img src="..\..\..\Images\Carte\{{ cartelog.Produit.Photo }}"  style="width:45px;position: relative;top: 0;left: 0;height:100px;"alt="Can of bug spray" class="card-img">
+																<img src="..\..\..\Images\Carte\Interdit.png" style="width: 118px;height: 128px;position: absolute;top: 22px;px;left: 119px;opacity: 0.7;" alt="Can of bug spray" class="card-img">
+                                
+                              {% else %}
+															<div class="text-center" id="product">
+															     <input type="text" class="fproduct" value="{{cartelog.Produit.IdProduit}}" hidden>
+																<img src="..\..\..\Images\Carte\{{ cartelog.Produit.Photo }}"  style="width:45px;position: relative;top: 0;left: 0;height:100px;"alt="Can of bug spray" class="card-img">
+																<img src="..\..\..\Images\Carte\Interdit.png" id="interditpic{{cartelog.Produit.IdProduit}}" style="width: 118px;height: 128px;position: absolute;top: 22px;px;left: 119px;opacity: 0.7;display:none;" alt="Can of bug spray" class="card-img">
+                                
+                              {% endif %}
+																</div>
+																<br>
+																<br>
+																 {% for iteme in cartelog.Produit.produitTarifs %} 
+                                                                     {% if iteme.Tarif.id == "1"  %}
+																<h3 class="card-title text-center text-info price" ><b>{{iteme.TarifTtc}} Dh</b></h3>
+																  {% endif %}
+                                                                 {% endfor %}
+															</div>															
+															<div class="card-body">
+																<h3 class="card-title text-center"><b>{{ cartelog.Produit.Produit }}</b><sup></h3>																													
+															</div>														
+														</div>
+
+											</article>
+							
+	                                   {% endif %}
+
+										{% endfor %}
+									
+					</div>
+				</div>
+
+
+					<div class="tab-pane fade" id="Plats" role="tabpanel" aria-labelledby="dinner-tab">
+												<div class="grid-container">
+                                           {% for cartelog in cartelogs %}
+													{% if cartelog.Produit.FamilleSousC.FamilleC.id == 2 %}
+										<article id="3685" class="location-listing">
+
+									
+														<div class="card">
+															<div class="card-header">
+															<p class="prod-price"><b>X</b><strong class="prod-price h2 {{cartelog.Produit.IdProduit}}" >{{cartelog.StockReste}}</strong></p>
+                              {% if cartelog.StockReste == 0 %}
+															<div class="text-center">
+															     <input type="text" class="fproduct" value="{{cartelog.Produit.IdProduit}}" hidden>
+																<img src="..\..\..\Images\Carte\{{ cartelog.Produit.Photo }}"  style="width:45px;position: relative;top: 0;left: 0;height:100px;"alt="Can of bug spray" class="card-img">
+																<img src="..\..\..\Images\Carte\Interdit.png" style="width: 118px;height: 128px;position: absolute;top: 22px;px;left: 119px;opacity: 0.7;" alt="Can of bug spray" class="card-img">
+                                
+                              {% else %}
+															<div class="text-center" id="product">
+															     <input type="text" class="fproduct" value="{{cartelog.Produit.IdProduit}}" hidden>
+																<img src="..\..\..\Images\Carte\{{ cartelog.Produit.Photo }}"  style="width:45px;position: relative;top: 0;left: 0;height:100px;"alt="Can of bug spray" class="card-img">
+																<img src="..\..\..\Images\Carte\Interdit.png" id="interditpic{{cartelog.Produit.IdProduit}}" style="width: 118px;height: 128px;position: absolute;top: 22px;px;left: 119px;opacity: 0.7;display:none;" alt="Can of bug spray" class="card-img">
+                                
+                              {% endif %}
+																</div>
+																<br>
+																<br>
+																 {% for iteme in cartelog.Produit.produitTarifs %} 
+                                                                     {% if iteme.Tarif.id == "1"  %}
+																<h3 class="card-title text-center text-info price" ><b>{{iteme.TarifTtc}} Dh</b></h3>
+																  {% endif %}
+                                                                 {% endfor %}
+															</div>															
+															<div class="card-body">
+																<h3 class="card-title text-center"><b>{{ cartelog.Produit.Produit }}</b><sup></h3>																													
+															</div>														
+														</div>
+
+											</article>
+							
+	                                   {% endif %}
+
+										{% endfor %}
+									
+					</div>
+				</div>
+
+					<div class="tab-pane fade" id="Desserts" role="tabpanel" aria-labelledby="dinner-tab">
+												<div class="grid-container">
+                                           {% for cartelog in cartelogs %}
+													{% if cartelog.Produit.FamilleSousC.FamilleC.id == 5 %}
+										<article id="3685" class="location-listing">
+
+									
+														<div class="card">
+															<div class="card-header">
+															<p class="prod-price"><b>X</b><strong class="prod-price h2 {{cartelog.Produit.IdProduit}}" >{{cartelog.StockReste}}</strong></p>
+                              {% if cartelog.StockReste == 0 %}
+															<div class="text-center">
+															     <input type="text" class="fproduct" value="{{cartelog.Produit.IdProduit}}" hidden>
+																<img src="..\..\..\Images\Carte\{{ cartelog.Produit.Photo }}"  style="width:45px;position: relative;top: 0;left: 0;height:100px;"alt="Can of bug spray" class="card-img">
+																<img src="..\..\..\Images\Carte\Interdit.png" style="width: 118px;height: 128px;position: absolute;top: 22px;px;left: 119px;opacity: 0.7;" alt="Can of bug spray" class="card-img">
+                                
+                              {% else %}
+															<div class="text-center" id="product">
+															     <input type="text" class="fproduct" value="{{cartelog.Produit.IdProduit}}" hidden>
+																<img src="..\..\..\Images\Carte\{{ cartelog.Produit.Photo }}"  style="width:45px;position: relative;top: 0;left: 0;height:100px;"alt="Can of bug spray" class="card-img">
+																<img src="..\..\..\Images\Carte\Interdit.png" id="interditpic{{cartelog.Produit.IdProduit}}" style="width: 118px;height: 128px;position: absolute;top: 22px;px;left: 119px;opacity: 0.7;display:none;" alt="Can of bug spray" class="card-img">
+                                
+                              {% endif %}
+																</div>
+																<br>
+																<br>
+																 {% for iteme in cartelog.Produit.produitTarifs %} 
+                                                                     {% if iteme.Tarif.id == "1"  %}
+																<h3 class="card-title text-center text-info price" ><b>{{iteme.TarifTtc}} Dh</b></h3>
+																  {% endif %}
+                                                                 {% endfor %}
+															</div>															
+															<div class="card-body">
+																<h3 class="card-title text-center"><b>{{ cartelog.Produit.Produit }}</b><sup></h3>																													
+															</div>														
+														</div>
+
+											</article>
+							
+	                                   {% endif %}
+
+										{% endfor %}
+									
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+<div id="commandfooter">
+    <nav>
+	 <div id="narrow-browser-alert" class="alert alert-info text-center" style="font-size:20px;">
+      <strong>Ma Commande</strong> </div>
+   
+  </nav>       
+  <div class="parent" style="border: 1px  ;">
+  <div class="column" style="width: 40%; border: 1px solid; margin-left:40px;" >
+    <form>
+        <div class="form-group" style="width:300px; font-size:15px;">
+        <legend style="font-size:25px;">Information Ticket :</legend>
+        <hr>
+        <label for="fname"><b>ID Ticket: </b></label>
+        <label for="fname" id="ticket"  style="margin-left:70px;">{{ticket}}</label><br>
+        <label for="lname"><b>N° Commande:</b></label>
+        <label for="fname" style="margin-left:30px;">20072</label><br>
+        <label for="email"><b>Date:</b></label>
+        <label for="fname" style="margin-left:95px;">{{today}}</label><br>
+        <label for="birthday"><b>ID Client:</b></label>
+        <label for="fname" style="margin-left:70px;">{{iduser}}</label><br>
+        <label for="birthday"><b>Client:</b></label>
+        <label for="fname" style="margin-left:88px;">{{Name}}</label><br>
+        <label for="birthday"><b>Solde Avant:</b></label>
+        <label for="fname" style="margin-left:46px;">{{Solde}} Dh</label><br>
+        <label for="birthday"><b>Solde Apres:</b></label>
+        <label for="fname" id="solde" style="margin-left:46px;" value={{Solde}}>{{Solde}} Dh</label><br>
+        </div>
+        </form>
+
+        </div>
+        <div class="column" id="roww" style="width: 70%; border: 1px solid;" >
+            <div class="columnn" style="width: 80%; border: 1px solid;  ">
+                <legend>Articles Commandés :</legend>
+                <hr>
+                <table style="width:100%">
+				 <thead>
+                    <tr  style="background: black; color:white; font-size:40px !important;">
+                      <th style="font-size:15px;">Qte</th>
+                      <th style="font-size:15px;">Produit</th>
+                      <th style="font-size:15px;">Prix U.</th>
+                      <th style="font-size:15px;">Prix Total</th>
+                    </tr>
+                    <tr>
+                     
+                    </tr>
+                   </thead>
+				   <tbody id="commandes">
+                  </tbody>
+    </table>
+              </div>
+              <div class="columnn" style="width: 20%;">
+               <input type="text" id="counter" value="0" style="width: 100%; margin-top: 50px;font-size:15px;">
+               <input id="total" type="text" value=0,00 style="width: 100%; margin-top: 20px;font-size:15px;">
+               <button type="button" class="btn btn-danger emptypanier" style="padding: 8px 13px; margin-top: 131px;"><i class="far fa-trash-alt"></i></button>
+               {# <button type="button" class="btn btn-danger emptypanier" style="padding: 8px 13px; margin-top: 131px;"><i class="far fa-trash-alt-o"></i></button> #}
+               </div>
+			   
+                    </div>
+      </div>
+<button id="valider" style="font-size: 20px;"  type="button" class="btn btn-outline-success btn-rounded waves-effect valider">
+<i class="fas fa-chevron-circle-down pr-3" aria-hidden="true"></i>Terminer La Commande</button>
+<button onclick="location.href=href='{{ path("destroy") }}'" style="font-size: 20px;" type="button" class="btn btn-outline-danger btn-rounded waves-effect annuler"><i class="fas fa-file-excel pr-3"
+        aria-hidden="true"></i>Annuler La Commande</button>			
+		
+
+
+    </div>
+  
+  </div>
+  </div>
+  <!-- Button trigger modal-->
+
+<!-- Modal: modalCart -->
+<div class="modal" id="modalCart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true" style="margin-top:300px;">
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+      <!--Header-->
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel"><b>Confirmation Commande</b></h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <!--Body-->
+      <div class="modal-body">
+<div> <div id="narrow-browser-alert" class="alert alert-info text-center" style="font-size:40px;">
+      <strong>{{Name}}</strong> 
+       <table class="table table-hover" style="border:solid 1px;">
+          <thead>
+            <tr >
+              <th style="border:solid 1px;background-color:lightgreen;font-size: 22px;"><b>Commande N°</b></th>
+              <th style="border:solid 1px;background-color:#c38ec3;font-size: 22px;"><b>Solde Avant</th>
+              <th style="border:solid 1px;background-color:#f5d594;font-size: 22px;"><b>Solde Apres</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="border:solid 1px;font-size: 22px;" scope="row"><b>20001</b></td>
+              <td style="border:solid 1px;font-size: 22px;" id="solde_avant"><b> </b></td>
+              <td style="border:solid 1px;font-size: 22px;" id="solde_apres"><b> </b></td>
+            </tr>
+              </tbody>
+        </table>
+            </div></div>
+        <table class="table table-hover">
+          <thead>
+            <tr >
+              <th style="border:solid 1px;font-size: 22px;">#</th>
+              <th style="border:solid 1px;font-size: 22px;">Produit</th>
+              <th style="border:solid 1px;font-size: 22px;">prix</th>
+              <th style="border:solid 1px;font-size: 22px;">prix_totale</th>
+            </tr>
+          </thead>
+          <tbody id="confirmations">
+          
+          </tbody>
+        </table>
+        
+ <table class="table" style="border:solid 3px green;" id="modaletot">
+          <thead>
+            <tr >
+              <th><b>total</b></th>
+              <th><b></th>
+              <th><b></th>
+              <th><b>14.00</th>
+            </tr>
+          </thead>
+        
+        </table>
+      </div>
+      <!--Footer-->
+      <div class="modal-footer" style="gap:88rem">
+       <button style="font-size:20px;float:left;" type = "button" class = "btn btn-danger"  data-dismiss="modal">close</button>
+         <button style="font-size:20px;" class="btn btn-success" id="validecommande">Valider</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal: modalCart -->
+
+{% endblock %}
+{% block javascripts %}
+  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+
+{# <script>
+  $("#valider").click(function(){
+alert('ok');
+  $.ajax({
+                type:'POST',
+                url:"{{ path('recu') }}",
+                data:{Categorie:categorie,idseance: tableData[1]},
+                success:function(html){
+                   location.reload();
+                
+                }
+                 });
+
+)};
+)};
+</script> #}
+<script>
+function btnClick(){
+    document.dispatchEvent(new KeyboardEvent('keydown', {'key': 'w', 'ctrlKey': true}));   
+}
+btnClick();
+
+function Recharge(idx) {
+                     var url = '{{path('pdf',{'id' :'idx' })}}';
+                         url = url.replace("idx", idx);
+                         myWindowr =  window.open(url ,"", "width=100,height=50");
+           
+                          setTimeout(function(){
+                                myWindowr.close();
+                                location.href=href='{{ path("destroy") }}';
+                               }, 9000);
+
+        }
+
+///////////////////Produit/////////////////////
+$(document).ready(function(){
+  var prix_total = 0.0;
+  let solde_apres = $('body #solde').html();
+  let produits = [
+          {% for cartelog in cartelogs %}   
+  {
+    "idproduit": "{{ cartelog.Produit.IdProduit }}",
+    "produit": "{{ cartelog.Produit.Produit }}",
+ 	{% for iteme in cartelog.Produit.produitTarifs %} 
+     {% if iteme.Tarif.id == "1"  %}
+
+    "prix": {{iteme.TarifTtc}},
+    {% endif %}
+  {% endfor %}
+    "reste": {{cartelog.StockReste}},
+    
+  },
+  {% endfor %}
+  ];
+
+  let commandes = [
+         
+  ];
+ 
+
+
+$("body .card").click(function(){
+if($(this).find(".h2").html() == 0){
+  
+}
+else{
+  alert($("body #solde").val());
+    var pro = $(this).find('.fproduct').val();
+    var test = false;
+    var prix = '';
+    var count = 1;
+    let markup;
+    var prix_total = 0;
+    var prix_apres = $("body #solde").val();
+ produits.forEach(obj => {
+                if (obj.idproduit === pro) {
+                        
+                          prix_product = obj.prix;
+                          
+                          }
+                    });
+if (prix_product > parseFloat(solde_apres)){
+  Swal.fire({
+  icon: 'error',
+  title: 'Oops...',
+  text: 'solde insuffisant!',
+ 
+})
+}
+else{
+
+///////////////////////////////////sync reste ///////////////////////////////     
+///////////////////////////////////boucle insertion si commandes vide ///////////////
+
+       produits.forEach(obj => {
+                if (obj.idproduit === pro) {
+                          obj.count = obj.count + 1;
+                          prix = obj.prix;
+                          product = obj.produit;
+                          obj.reste = obj.reste - 1;
+                          $(this).find(".h2").html(obj.reste);
+                          
+                       
+                          solde_apres = parseFloat(solde_apres) - prix;
+                          }
+                    });
+                 if(commandes.length == 0){
+                          commandes.push({"count": 1,"idproduit":pro,"produit":product,"prix":prix,"prix_totale":prix*count});
+                      }
+///////////////////////////////////boucle insertion si commandes not vide ///////////////
+
+                else{
+                      commandes.forEach(function(command) {
+
+                        if( command.idproduit == pro ){ 
+                                test = true;
+
+                            }
+                          });
+       
+                              if(test == true){
+                                commandes.forEach(obj => {
+                                  console.log(obj.idproduit)
+                                  if (obj.idproduit === pro) {
+                                      obj.count = obj.count + 1;
+                                      count = obj.count;
+                                      obj.prix_totale = obj.prix * count;
+                                    
+                                   }
+                                });
+                              
+
+                              }
+                              else{
+                                 commandes.push({"count": 1,"idproduit":pro,"produit":product,"prix":prix,"prix_totale":prix*count});
+
+                              }
+   
+
+
+                }
+///////////////////////////////////boucle affichage  commandes dans table ///////////////
+
+   
+             commandes.forEach(obj => {
+
+                  markup += "<tr style='font-size:14px !important;'><td class='count' value='1' style='font-size:14px !important;' hidden>" + obj.idproduit + "</td><td class='count' value='1' style='font-size:14px !important;'>" + obj.count + "</td><td style='font-size:14px !important;'>" + obj.produit + "</td><td style='font-size:14px !important;'>" + obj.prix + "</td><td id='prixainsaiss' style='font-size:14px !important;'>" + obj.prix_totale + "</td></tr>";
+                  prix_total = prix_total + obj.prix_totale;
+
+                   });
+                   
+                   let counter = commandes.length;
+                  $("#commandes").empty().append(markup);
+                  $("#total").val(prix_total);
+                  $("#counter").val(counter);
+                  $("#solde").html(solde_apres+' Dh');
+                  $("#solde").val(solde_apres);
+                  let restetest = $(this).find(".h2").html();
+                  if(restetest == 0){
+                    $(this).find("#interditpic"+pro).css({"display": "block"});
+                  }
+
+}
+}
+
+              });
+
+
+$("body .emptypanier").click(function(){
+
+let prix_total = 0;
+let markup = '';
+idpro = tableData[0];
+prix_manque = tableData[4];
+ var newarray = commandes.filter((item) => item.idproduit !== idpro);
+ var newreste = commandes.filter((item) => item.idproduit == idpro);
+   commandes.forEach(obj => {
+  resteidproduit = obj.idproduit;
+  counter_old = obj.count;
+                   });
+         
+ commandes = newarray;
+ counterrecent = $("."+resteidproduit).html();
+ newcounter = parseFloat(counter_old) + parseFloat(counterrecent);
+
+         commandes.forEach(obj => {
+
+                  markup += "<tr style='font-size:14px !important;'><td class='count' value='1' style='font-size:14px !important;' hidden>" + obj.idproduit + "</td><td class='count' value='1' style='font-size:14px !important;'>" + obj.count + "</td><td style='font-size:14px !important;'>" + obj.produit + "</td><td style='font-size:14px !important;'>" + obj.prix + "</td><td id='prixainsaiss' style='font-size:14px !important;'>" + obj.prix_totale + "</td></tr>";
+                  prix_total = prix_total + obj.prix_totale;
+
+                   });
+                   let counter = commandes.length;
+                   solde_apres = parseFloat(solde_apres) + parseFloat(prix_manque);
+
+                  $("#commandes").empty().append(markup);
+                  $("#total").val(prix_total);
+                  $("#solde").html(solde_apres+ 'Dh');
+                  $("#counter").val(counter);
+                  $("."+resteidproduit).html(newcounter);
+                  $('body').find("#interditpic"+resteidproduit).css({"display": "none"});
+                    produits.forEach(obj => {
+                if (obj.idproduit === idpro) {
+                        
+                          obj.reste = obj.reste + counter_old;
+                         
+                          }
+                    });
+
+console.log(produits);
+{# commandes = [];
+$("#commandes").empty();
+ $("#total").val(0);
+  $("#counter").val(0); #}
+			});
+
+
+
+$("body #valider").click(function(){
+  var prix_total = 0;
+  let markup = '';
+  let mark = '';
+  let counter = commandes.length;
+   $('#modalCart').modal('toggle');
+          $('#modalCart').modal('show');
+ commandes.forEach(obj => {
+                    markup += '<tr><th scope="row" style="font-size:20px !important">' + obj.count + '</th><td style="font-size:20px !important"> ' + obj.produit + ' Dh</td><td style="font-size:20px !important">' + obj.prix + '</td><td style="font-size:20px !important"> '+ obj.prix_totale + 'Dh</td></tr>';
+                   
+                  prix_total = prix_total + obj.prix_totale;
+
+                   });
+                    mark += '<thead><tr><th style="font-size:20px !important"><b>' + counter + '</b></th><th><b></th> <th><b></th> <th id="modaltotal" style="float:right;font-size:20px !important"><b>'+ prix_total +',00 Dh</b></th> </tr></thead>';
+            
+                  $("#confirmations ").empty().append(markup);
+                  $("#modaletot").empty().append(mark);
+                  $("#solde_avant").html({{Solde}}+',00 Dh');
+                  $("#solde_apres").html(solde_apres+',00 Dh');
+
+                 
+
+			});
+
+$('body').on('click', '#commandes tr',function () {
+
+     tableData = $(this).children("td").map(function () {
+          return $(this).text();
+        }).get();
+        $('#commandes tr').css('background-color', 'white');
+        $(this).css('background-color', '#cacaca');
+        console.log(commandes);        
+
+});
+
+  ///////////////////////////////// valider commande /////////////////////////////////////////////////////
+
+$('body').on('click', '#validecommande',function () {
+  let prix_tot = 0;
+  let ticket = $('#ticket').html();
+ commandes.forEach(obj => {
+                   
+                  prix_tot = prix_tot + obj.prix_totale;
+
+                   });
+     $.ajax({
+                type:'POST',
+                url:"{{ path('validecommande') }}",
+                data:{prixavant:{{Solde}},
+                prixapres: solde_apres,
+                panier: commandes,
+                idcarte: {{idcarte}},
+                id_repartition: {{idrepa}},
+                prix_total: prix_tot,
+                ticket: ticket,
+                },
+                success:function(html){
+                  Recharge(ticket);
+                } 
+                 });
+
+
+});
+  //////////////////////////////////////////////////////////////////////////////////////
+
+ 
+
+});
+
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+ 
+  <script src="../../../vendors/jquery/jquery-3.2.1.min.js"></script>
+  <script src="../../../vendors/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="../../../vendors/nice-select/jquery.nice-select.min.js"></script>
+</body>
+</html>
+{% endblock %}

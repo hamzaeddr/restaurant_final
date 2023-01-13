@@ -1,0 +1,168 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+    <style>
+        .cards-list {
+  z-index: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 15%;
+}
+
+.cardC {
+  margin: 30px auto;
+  width: 400px;
+  height: 400px;
+  border-radius: 40px;
+box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.cardC p{
+    color:black;
+}
+
+.cardC .card_image {
+  width: inherit;
+  height: inherit;
+  border-radius: 40px;
+}
+
+.cardC .card_image img {
+  width: inherit;
+  height: inherit;
+  border-radius: 40px;
+  object-fit: cover;
+}
+
+.cardC .card_title {
+  text-align: center;
+  border-radius: 0px 0px 40px 40px;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 30px;
+  margin-top: -80px;
+  height: 40px;
+  margin-top: 10%;
+}
+
+.cardC:hover {
+  transform: scale(0.9, 0.9);
+  box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25), 
+    -5px -5px 30px 15px rgba(0,0,0,0.22);
+}
+
+.title-white {
+  color: white;
+}
+
+.title-black {
+  color: black;
+}
+
+@media all and (max-width: 500px) {
+  .card-list {
+    /* On small screens, we are no longer using row direction but column */
+    flex-direction: column;
+  }
+}
+
+
+/*
+.card {
+  margin: 30px auto;
+  width: 300px;
+  height: 300px;
+  border-radius: 40px;
+  background-image: url('https://i.redd.it/b3esnz5ra34y.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-repeat: no-repeat;
+box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+  transition: 0.4s;
+}
+*/
+    </style>
+     <link rel="stylesheet" href="{{ asset('../css/styles.css') }}">
+     {# <section class="home-section" style="height: 100vh;"> #}
+        {# <nav >
+            <div class="sidebar-button">
+                <i class='bx bx-menu sidebarBtn' style="font-size:45PX;position: relative;
+                top: 15px;left: 15px;"></i>
+
+            </div>
+           
+        </nav> #}
+
+       
+            <div class="cards-list">
+   
+  
+                 {% for item in list %}
+    {% for iteme in item.carteRepartitions %}
+     {% if iteme.Repartition == 'Petit Déjeuner' %}
+                <div class="cardC " data-id={{iteme.Id}}>
+                  <div class="card_image"> <img src="../img/petitdej.jpg" /> </div>
+                  <div class="card_title title-white">
+                    <p>{{iteme.Repartition}}</p>
+                  </div>
+                </div>
+                {% endif %}
+
+
+       {% if iteme.Repartition == 'Déjeuner' %}
+                  <div class="cardC " data-id={{iteme.Id}}>
+                  <div class="card_image">
+                    <img src="../img/dej.jpg" />
+                    </div>
+                  <div class="card_title title-white">
+                    <p>{{iteme.Repartition}}</p>
+                  </div>
+                </div>
+                {% endif %}
+
+         
+
+             
+                  {% if iteme.Repartition == 'Diner' %}
+                <div class="cardC "  data-id={{iteme.Id}}>
+                  <div class="card_image">
+                    <img src="../img/diner.jpg" />
+                  </div>
+                  <div class="card_title">
+                    <p>Diner</p>
+                  </div>
+                </div>
+                  {% endif %}
+                {% endfor %}
+{% endfor %}            
+                  
+                 
+                
+                </div>
+
+                
+{#         
+    </section> #}
+    <script>
+          $(document).ready(function() {
+
+            $('.1').on('click', function () {
+            location.href="http://127.0.0.1:8000/caisse/petitdej"
+          });
+          $('.2').on('click', function () {
+            location.href="http://127.0.0.1:8000/caisse/dej"
+          });
+          $('.3').on('click', function () {
+            location.href="http://127.0.0.1:8000/caisse/diner"
+          });
+
+          })
+    </script>
+    {% endblock %}

@@ -1,0 +1,36 @@
+
+
+ html, body {
+  height: 100%;
+margin: 0;
+}
+
+.full-height {
+height: 100%;
+font-size: 150%;
+margin-top : -40px;
+
+}
+#logo{
+position: absolute;
+top: 15%;
+left: 50%;
+transform: translate(-50%,-50%);
+margin-top: -70px;
+
+}
+#demo{
+ position: absolute;
+top: 80%;
+left: 50%;
+transform: translate(-50%,-50%);
+padding-bottom: 20px;
+} 
+#content{
+   position: absolute;
+top: 47.5%;
+left: 50%;
+transform: translate(-50%,-50%);
+text-align: center;
+
+} 

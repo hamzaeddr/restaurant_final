@@ -1,0 +1,13 @@
+
+<tbody class="tbodylstcarte" style="height:25rem !important;">
+    {% for item in lstcarte %}
+    <tr>
+        <td><input type="checkbox" class="checklibelle2 " value="{{item.id}}" id="checklibelle2"></td>
+    <td class="idcarteFact" data-id="{{item.id}}">{{item.id_carte}}</td>
+    <td>{{item.client}}</td>
+    <td>{{item.beneficiaire}}</td>
+    </tr>
+    
+    {% endfor %}
+                                </tbody>
+                                

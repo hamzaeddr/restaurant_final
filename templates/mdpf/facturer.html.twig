@@ -1,0 +1,215 @@
+<style type="text/Css">
+    body{
+        font-family: 'Source Sans Pro', sans-serif;
+    }
+    .titre-reb{
+        width: 100%;
+        background: #1f4f7a;
+        font-size: 9px ;
+        padding:3px 10px;
+        color: #f1f1f1;
+        font-weight: bold;
+
+    }
+    .slh tr td {
+        border-bottom: 0.5px solid #292929;
+    }
+    *{
+        font-family: 'Courier' !important;
+    }
+</style>
+<page backtop="35mm" backbottom="40mm"  backleft="0mm" backright="0mm">
+
+<table style="width: 100% ;text-align: center;border: 0.5px solid #292929; ">
+    <tr>
+        <td style="width: 30% ;">
+            <table cellspace="0" style="width: 100% ;margin: 0;">
+                <tr>
+                    <th style="width: 100% ; font-size: 10px ;font-weight: 200;height: 6px;background-color: black;color: white;">DATE BORDEREAU </th>
+                </tr>
+                <tr>
+                    <td style="width: 100% ; font-size: 10px"> {{detailC.DateFact | date('Y-m-d')}}</td>
+                </tr>
+                <!-- <tr>
+                    <td style="width: 100% ; font-size: 11px ;font-weight: bold"></td>
+                </tr> -->
+            </table>
+        </td>
+        <td rowspan="2" style="width: 40% ;font-size: 16px;font-weight: bold ; border-right: 1px;border-left: 1px;">BORDEREAU A FACTURER </td>
+        <td style="width: 30% ;">
+            <table style="width: 100% ; background: #FFFFFF; text-align: center;">
+                <tr>
+                    <th style="width: 100% ; font-size: 10px ;font-weight: 200;background-color: black;color: white;">N° BORDEREAU</th>
+                </tr>
+                <tr>
+                    <td style="width: 100% ; font-size: 10px">{{detailC.NumFact}}</td>
+                </tr>
+                <!-- <tr>
+                    <td style="width: 100% ; font-size: 11px ;font-weight: bold"></td>
+                </tr> -->
+            </table>
+        </td>
+    </tr>
+</table>
+
+
+
+    <br/>
+<table cellspacing="0" style="width: 100%; text-align: left; font-size: 12px">
+    <tr>
+        <td style="padding: 10px 4px  ; text-transform: uppercase;font-weight: bold;font-size: 13px">Informations Client</td> 
+    </tr>
+</table>
+
+
+<table style="width: 100%; text-align: left; font-size: 9px">
+    <tr style="width: 100%"> 
+        <td style="width: 50% ;">
+            <table style="width: 100% ;">
+                <tr>
+                    <td style="width: 35% ;border: 0.5px solid #292929">
+                        <table style="width: 100% ; ">
+                            <tr>
+                                <td style="width: 100%">Client :</td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td style="width: 65%;border: 0.5px solid #292929">
+                        <table style="width: 100% ;">
+                            <tr>
+                                <td style="width: 100%">{{detailC.Client.Client}}</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 35% ;border: 0.5px solid #292929">
+                        <table style="width: 100% ; ">
+                            <tr>
+                                <td style="width: 100%">Bénéficiaire  :</td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td style="width: 65%;border: 0.5px solid #292929">
+                        <table style="width: 100% ;">
+                            <tr>
+                                <td style="width: 100%">{{detailC.Beneiciaire.Beneficiaire}}</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 35% ;border: 0.5px solid #292929">
+                        <table style="width: 100% ; ">
+                            <tr>
+                                <td style="width: 100%">Tarif  :</td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td style="width: 65%;border: 0.5px solid #292929">
+                        <table style="width: 100% ;">
+                            <tr>
+                                <td style="width: 100%">{{detailC.Tarif.Tarif}}</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 35% ;border: 0.5px solid #292929">
+                        <table style="width: 100% ; ">
+                            <tr>
+                                <td style="width: 100%">Demande Achat :</td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td style="width: 65%;border: 0.5px solid #292929">
+                        <table style="width: 100% ;">
+                            <tr>
+                                <td style="width: 100%">{{detailC.demandeA}}</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 35% ;border: 0.5px solid #292929">
+                        <table style="width: 100% ; ">
+                            <tr>
+                                <td style="width: 100%">Date DA :</td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td style="width: 65%;border: 0.5px solid #292929">
+                        <table style="width: 100% ;">
+                            <tr>
+                                <td style="width: 100%">{{detailC.dateA | date('Y-m-d')}}</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>   
+</table>
+
+<br>
+<table class="slh" style="width: 100%;font-size: 12px" cellspacing="-0.7">
+    <tr style="background-color: Black;font-size: 12px;">
+        <th style="width: 10%;padding: 5px;text-align: left;color: white">ORD</th>
+        <th style="width: 20%;padding: 5px;text-align: center;color: white">ID Carte</th>
+        <th style="width: 50%;padding: 5px;text-align: center;color: white">ID Repas</th>
+        <th style="width: 20%;padding: 5px;text-align: center;color: white">Repas</th>
+        <th style="width: 20%;padding: 5px;text-align: center;color: white">Heure</th>
+        <th style="width: 20%;padding: 5px;text-align: center;color: white">Pax</th>
+        <th style="width: 20%;padding: 5px;text-align: center;color: white">Prix Total</th>
+    </tr>
+</table>
+{% set totalF = 0 %}
+{% for itemD in detailR %}
+    <h6 data-id="{{itemD.date_validite}}">
+        {{itemD.date_validite | date('Y-m-d')}}
+    </h6>
+    <table class="slh" style="width: 100%;font-size: 16px" cellspacing="-0.7">
+        {% set count = 1 %}
+     
+        
+    {% for itemP in detailP %}
+    
+    
+    {% if itemD.date_validite | date('Y-m-d') == itemP.date_validite | date('Y-m-d') %}
+        
+        <tr style="">
+            <th style="width: 10%;padding: 5px;text-align: left;font-size:16px">{{count}}</th>
+            <th style="width: 20%;padding: 5px;text-align: center;font-size:16px">{{itemP.carte_id}}</th>
+            <th style="width: 50%;padding: 5px;text-align: center;font-size:16px">{{itemP.repartition_id}}</th>
+            <th style="width: 20%;padding: 5px;text-align: center;font-size:16px">{{itemP.repartition}}</th>
+            <th style="width: 20%;padding: 5px;text-align: center;font-size:16px">{{itemP.heure}}</th>
+            <th style="width: 20%;padding: 5px;text-align: center;font-size:16px">{{itemP.pax}}</th>
+            <th style="width: 20%;padding: 5px;text-align: center;font-size:16px">{{itemP.montant}}</th>
+        </tr>
+        {% set count = count + 1  %}
+         {% set totalF = totalF + itemP.montant  %}
+        
+    {% endif %}
+    
+    {% endfor %}
+
+   
+</table>
+
+       {% endfor %} 
+
+       <table class="slh" style="width: 100%;font-size: 16px;margin-top:20px;" cellspacing="-0.7">
+        <tr style="">
+            <th style="width: 10%;padding: 5px;text-align: left;font-size:16px"></th>
+            <th style="width: 20%;padding: 5px;text-align: center;font-size:16px"></th>
+            <th style="width: 50%;padding: 5px;text-align: center;font-size:16px"></th>
+            <th style="width: 20%;padding: 5px;text-align: center;font-size:16px"></th>
+            <th style="width: 20%;padding: 5px;text-align: center;font-size:16px"></th>
+            <th style="width: 20%;padding: 5px;text-align: center;font-size:16px"></th>
+            <th style="width: 20%;padding: 5px;text-align: center;font-size:16px;background:black;color:white;">{{ totalF}}</th>
+        </tr>
+</table>       
+
+</page>
+
+

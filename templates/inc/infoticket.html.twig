@@ -1,0 +1,88 @@
+<style>
+  html, body {
+   height: 100%;
+margin: 0;
+}
+#qrcode{
+text-align: center;
+}
+
+</style>
+<div align="center">
+
+  <img id="logo" src="../img/Lcasis.png" /> 
+{% set count = 0 %}
+{% set total = 0 %}
+ 
+ <a ><div id="logo"  class="navbtn settD Spresent" > </div></a>
+ <div id="content">
+{% for item in info %}
+ <h3><b>TICKET N° /  {{item.IdOperation}} - {{item.DateOperation | date('Y-m-d')}} à {{item.HeureOperation | date('Y-m-d')}}<b></h3>
+ {% set c = 0 %}
+ {% for item in cpt %}
+ {% set c = c + 1 %}
+ {% endfor %}
+ <h4>Commande N° :{{c}} - {{item.Repartition.Repartition}} </h4>
+  {% endfor %}
+ <table style="width:100%; ">
+ <thead>
+ <tr style="background-color:black; color:white; border: solid 1px black">
+ <th style="background-color:black; color:white; border: solid 1px black">QTE</th>
+ <th style="background-color:black; color:white; border: solid 1px black">DESIGNATION</th>
+ <th style="background-color:black; color:white; border: solid 1px black">TOTAL</th>
+ </thead>
+ <tbody style="text-align:center;">
+  {% for item in detail %}
+      <tr>
+      <td>{{item.Produit.Produit}}</td>
+      <td>{{item.Qte}}</td>
+      <td>{{item.PrixTtc}} DH</td>
+      </tr>
+      {% set count = count + item.Qte %}
+      {% set total = total + item.PrixTtc %}
+  {% endfor %}
+
+ </tbody>
+ </table>
+ <hr>
+ <table style="width:100%; ">
+ <thead>
+ <tr>
+ <th>{{count}}</th>
+ <th>TOTAL DU TICKET :</th>
+ <th>{{total}}</th>
+ </tr>
+ </thead>
+ </table>
+ 
+ <table >
+ <thead>
+ <tr style="text-align:left;">
+ <th style="text-align:left;">REGLEMENTS</th>
+ </tr>
+ <hr/>
+ <th></th>
+ </thead>
+ 
+ <tbody style="text-align:left;">
+ {% for item in info %}
+ <tr>
+ <td>PRE-PAYEE({{item.NomAcheteur}})</td>
+ <td>{{item.SoldeAv - item.SoldeAp}}</td>
+ </tr>
+ <tr>
+ <td>SOLDE</td>
+ <td>{{item.SoldeAp}}</td>
+ </tr>
+ {% endfor %}
+ </tbody></table>
+  <br>
+  <br>
+ 
+ <br>
+  
+ </div>
+ <script type="text/javascript">
+  window.print();
+  window.onafterprint = window.close;	
+</script>

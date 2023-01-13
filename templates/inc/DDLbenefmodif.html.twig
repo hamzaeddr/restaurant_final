@@ -1,0 +1,6 @@
+<select class="form-control selectbenefmodif" required="required" style="margin-bottom: 10px;">
+    <option value="1" disabled="disabled" class="optbenefmodif" selected="selected">Select Bénéficiaire</option>
+        {% for item in lstbenef %}
+        <option class="optClient" value="{{item.Id}}">{{item.Beneficiaire}}</option>
+        {% endfor %}
+ </select>

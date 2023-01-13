@@ -1,0 +1,13 @@
+
+{% for item in lstRep %}
+        <tr>
+            <td class="idcarteRep" style="display:none !important">{{item.Id}}</td>
+            <td id="tdID" data-id="{{item.Id}}">{{item.IdRepartition}}</td>
+            <td>{{item.Repartition}}</td>
+            <td>
+             <input type="text" name="paxRep" class="form-control paxRep" style="width: 60%;" id="paxRep" value="{{item.Pax}}">   
+            </td>
+            <td>{{item.Heure | date('H:m')}}</td>
+        </tr>
+        {% endfor %}
+      

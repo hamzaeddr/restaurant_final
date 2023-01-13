@@ -1,0 +1,140 @@
+{# {% extends 'base.html.twig' %}
+ {% block stylesheets %}
+           <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" href="../css/ajouterproduit.css">
+        {% endblock %}
+           {% block javascripts %} #}
+            {#{{ encore_entry_script_tags('app') }}#}
+          
+             {# <script src="{{ asset('js/jquery-3.5.1.js') }}"></script>
+             <script src="{{ asset('js/script.js') }}"></script>
+        {% endblock %} #}
+
+{# {% block body %} #}
+
+            <div class="modal-body ">
+               
+             <div class="col-lg-12  m-auto">   
+                    
+
+                    <!-- <link rel="stylesheet" href="{{ asset('../css/styles.css') }}"> -->
+                    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="width:1840px">
+    <div class="container-fluid ">
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup" style="margin-left: -510px;">
+        <div class="navbar-nav">
+       <div class="row container">
+            <!-- <table class="fl-table ml-5 ">
+        <thead>
+        <tr>
+            <th>ID Carte</th>
+            <th>Nom Carte</th>
+            <th>ID Repartition</th>
+            <th>Nom Repartition</th>
+            <th>Type </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>{{idcarte}}</td>
+            <td></td>
+            <td>{{idrepartition}}</td>
+            <td>Content 1</td>
+            <td>Content 1</td>
+        </tr>
+      
+        <tbody>
+                 </table> -->
+       </div>
+             
+        </div>
+      </div>
+    </div>
+                    </nav>
+
+                            <div class="col-lg-12  d-flex">
+                                <div class="col-lg-8">
+                                
+                                
+                                    <div class="row py-2 text-center ">
+                                    <nav class="site-nav navbar-light bg-light ">
+                                        <ul class="mt-1 text-center ms-5">
+                                            {% for item in lstfamille %}
+                                            {% if item.Photo != "" %}
+                                            <li class="navIMG NavAjtPro"><a   data-id="{{item.id}}"><img src="..\Images\Carte\{{item.Photo}}" class="img-menu"><p>{{item.FamilleC}}</p></a></li>
+                                            {% endif %}
+                                            {% endfor %}
+                                        </ul>
+                                    </nav>
+                                    </div>
+                                
+                                    <div class="row py-2 text-center ">
+                                        <nav class="site-nav navbar-light bg-light navSF ">
+                                        <ul class="mt-1 text-center ms-5">
+                          {# ========================== #}
+                        
+                                    </ul>
+                                    </nav>
+                                </div>
+                                <div class="row py-3 bg-light" style="height: 36.4rem;">
+                                
+                                <div class="container  text-center ">
+                                    <div class="col-lg-12  d-flex espaceproduit"  style="flex-wrap: wrap; ">
+                                            
+                                        {# =========================== #}
+                                        
+
+                                                
+                                    </div> 
+                     
+                        
+                   
+                  </div>
+                     
+                </div>
+            </div>
+            
+            <div class="col-lg-3 ms-5 col-m">
+
+                <div class="recent-sales box mt-2">
+                    <div class="sales-details">
+                        <table class="table_" style="font-size: small; width: 38.5rem;height: 835px;">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        ID Produit
+                                    </th>
+                                    <th>
+                                        Nom Produit
+                                    </th>
+                                    <th>
+                                        Qte
+                                    </th>
+                                    
+                                </tr>
+                            </thead>
+                            <tbody class="tbodyproduitadd" style="height: 75rem !important;">
+                                <tr>
+                                    
+                                   
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+               
+
+                </div>
+
+            </div>
+                 </div>
+
+
+              </div>
+
+            </div>
+           
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-success btnajouterproduiteadd" >Ajouter</button>
+                <button type="button" class="btn btn-danger">Fermer</button>
+            </div>
+          {# {% endblock %} #}

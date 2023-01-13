@@ -1,0 +1,6 @@
+
+{% for item in lstProduit %}
+    <div class="col-lg-2 items-color selectproduct">
+        <a href="#0" class="items-menu " data-id="{{item.id}}" style="color: black; text-decoration: none;"><img src="..\Images\Carte\{{item.Photo}}" alt="" class="img-menu2"><p>{{item.Produit}}</p></a>
+    </div>
+{% endfor %}

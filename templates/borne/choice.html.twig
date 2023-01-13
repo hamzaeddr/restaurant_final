@@ -1,0 +1,173 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello IndexController!{% endblock %}
+
+{% block body %}
+ <style>
+
+  html{
+    box-sizing: border-box;
+    font-size: 62.5%;
+  }
+        .cards-list {
+  z-index: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 30%;
+}
+
+.cardC {
+  margin: 30px auto;
+  width: 200px;
+  height: 200px;
+  border-radius: 40px;
+  box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.cardC p{
+    color:black;
+}
+
+.cardC .card_image {
+  width: inherit;
+  height: inherit;
+  border-radius: 40px;
+}
+
+.cardC .card_image img {
+  width: inherit;
+  height: inherit;
+  border-radius: 40px;
+  object-fit: cover;
+}
+
+.cardC .card_title {
+  text-align: center;
+  border-radius: 0px 0px 40px 40px;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 30px;
+  margin-top: -80px;
+  height: 40px;
+  margin-top: 30%;
+}
+
+.cardC:hover {
+  transform: scale(0.9, 0.9);
+  box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25), 
+    -5px -5px 30px 15px rgba(0,0,0,0.22);
+}
+
+.title-white {
+  color: white;
+}
+
+.title-black {
+  color: black;
+}
+
+@media all and (max-width: 400px) {
+  .card-list {
+    /* On small screens, we are no longer using row direction but column */
+    flex-direction: column;
+  }
+}
+
+p{
+  font-size:25px;
+}
+
+
+    </style>
+  <head>
+    <link rel="stylesheet" href="css/index.css">
+
+</head>
+<body>
+
+  <div class="container" style="max-width: 55% !important;">
+        <div class="cards-list">
+        <h1>{{ time }}</h1>
+                          {% for repa in repartition %}
+                                 {% if repa.repartition == 'Petit Déjeuner' %}
+                                 {% if  time  >= '07:00:00' and time  <= '08:45:00'  %}
+  
+                <div class="cardC 1" onclick="location.href=href='{{ path('menuaff', {'id': carte,'id_repartition': repa.id, 'borne': borne}) }}'">
+                  <div class="card_image"> <img src="../../img/petitdej.jpg" /> </div>
+                  <div class="card_title title-white">
+                  <p>Petit Dejeuner</p>
+                  </div>
+                </div>
+                
+                                 {% else %}
+                  <div class="cardC 1" style="filter: grayscale(1);">
+                  <div class="card_image"> <img src="../../img/petitdej.jpg" /> </div>
+                  <div class="card_title title-white">
+                  <p>Petit Dejeuner</p>
+                  </div>
+                </div>  
+                {% endif %}
+
+
+                                 {% elseif repa.repartition == 'Déjeuner' %}
+                                 {% if  time  >= '07:00:00' and time  <= '14:00:00'  %}
+
+                
+                  <div class="cardC 2" onclick="location.href=href='{{ path('menuaff', {'id': carte,'id_repartition': repa.id, 'borne': borne}) }}'">
+                  <div class="card_image">
+                    <img src="../../img/dej.jpg" />
+                    </div>
+                  <div class="card_title title-white">
+                  <p>Dejeuner</p>
+                  </div>
+                </div>
+                                 {% else %}
+                
+                 <div class="cardC 2" style="filter: grayscale(1);">
+                  <div class="card_image">
+                    <img src="../../img/dej.jpg" />
+                    </div>
+                  <div class="card_title title-white">
+                  <p>Dejeuner</p>
+                  </div>
+                </div>
+                {% endif %}
+
+                                 {% elseif repa.repartition == 'Diner' %}
+                                 {% if  time  >= '07:00:00' and time  <= '21:00:00'  %}
+
+                
+                <div class="cardC 3" onclick="location.href=href='{{ path('menuaff', {'id': carte,'id_repartition': repa.id, 'borne': borne}) }}'">
+                  <div class="card_image">
+                    <img src="../../img/diner.jpg" />
+                  </div>
+                  <div class="card_title">
+                  <p>Diner</p>
+                  </div>
+                </div>
+
+                                 {% else %}
+                <div class="cardC 3" style="filter: grayscale(1);">
+                  <div class="card_image">
+                    <img src="../../img/diner.jpg" />
+                  </div>
+                  <div class="card_title">
+                  <p>Diner</p>
+                  </div>
+                </div>
+
+                {% endif %}
+                {% endif %}
+                  {% endfor %}
+            
+                </div>
+   </div>
+      </body>
+      
+      
+      {% endblock %}
+  

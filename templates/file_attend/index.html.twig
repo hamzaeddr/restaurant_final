@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello FileAttendController!{% endblock %}
+
+{% block body %}
+<style>
+   
+</style>
+
+<div class="example-wrapper">
+<div class="row">
+    <div class="col-lg-6">
+        <div class="text-center text-white" style="background-color: red;">
+            <h1>
+                En cours De Preparation
+            </h1>
+            <table class="table_ " style="font-size: small;overflow-x: hidden !important;" id="rowClick">
+                <thead>
+                    <tr>
+                        <th class="text-center">
+                            <h1>ID TICKET</h1>  
+                        </th>
+                    </tr>
+                </thead>
+                <tbody class="tbodyencours" style="max-height: 55rem !important;overflow-x: hidden !important;">
+                    {% for item in lstoperation %}
+                    <tr>
+                        <td class="col text-center" >
+                            <h1>{{item.id}}</h1>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="text-center text-white" style="background-color: rgb(22, 185, 28);">
+            <h1>
+                Pret a servie
+            </h1>
+            <table class="table_ " style="font-size: small;overflow-x: hidden !important;" id="rowClick">
+                <thead>
+                    <tr>
+                        <th class="text-center">
+                            <h1>ID TICKET</h1>  
+                        </th>
+                    </tr>
+                </thead>
+                <tbody class="tbodyprete" style="max-height: 55rem !important;overflow-x: hidden !important;">
+                    <!-- <tr>
+                        <td scope="col" ></td>
+                    </tr> -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>   
+
+    
+</div>
+{% endblock %}

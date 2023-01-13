@@ -1,0 +1,29 @@
+<table>
+<tbody class="tbodycarte" style="max-height: 45rem !important;overflow-x: hidden !important;">
+                                        {% for item in list %}
+
+                                        <tr >
+                                            <td hidden>{{item.Id}}</td>
+                                            <td id="tdID" data-id="{{item.Id}}">{{item.IdCarte}}</td>
+                                            <td>{{item.DateCreation | date('D')}}</td>
+                                            <td>{{item.DateValidite | date('d-m-Y')}}</td>
+                                            <td>{{item.Client.Client}}</td>
+                                            <td>{{item.Beneficiaire.Beneficiaire}}</td>
+                                            <td>{{item.TypeClient}}</td>
+                                            <td>{{item.Obs}}</td>
+                                            {% if item.Generer == 0 %}
+                                            <td><input type="checkbox" name="" class="checkGenerer" id="" disabled="disabled"></td>
+                                            {% else %}
+                                            <td><input type="checkbox" name="" class="checkGenerer" id="" disabled="disabled" checked></td>
+                                            {% endif %}
+                                             {% if item.Facturer == 0 %}
+                                            <td><input type="checkbox" name="" class="checkFacturer" id="" disabled="disabled"></td>
+                                            {% else %}
+                                            <td><input type="checkbox" name="" class="checkFacturer" id="" disabled="disabled" checked></td>
+                                            {% endif %}
+                                        </tr>
+                                        
+                                        {% endfor %}
+
+                                    </tbody>
+                                    </table>

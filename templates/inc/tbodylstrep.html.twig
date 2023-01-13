@@ -1,0 +1,21 @@
+ <tbody class="tbodyrep" style="height:25rem !important;">
+    {% for item in lstRep %}
+    <tr>
+        <td>
+            {{item.IdRepartition}}
+        </td>
+        <td>
+            {{item.Repartition}}
+        </td>
+        <td>
+            {{item.Pax}}
+        </td>
+        <td>
+            {{item.Heure | date('H:i:s')}}
+        </td>
+        <td>
+            <input type="checkbox">
+        </td>
+    </tr>
+    {% endfor %}
+                                </tbody>

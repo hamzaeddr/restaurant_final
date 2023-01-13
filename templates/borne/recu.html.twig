@@ -1,0 +1,80 @@
+
+
+   <style>
+     html, body {
+      height: 100%;
+  margin: 0;
+}
+#qrcode{
+  text-align: center;
+}
+
+</style>
+ 
+<body>
+<div align="center">
+
+ <img id="logo" src="http://127.0.0.1:8000/img/Lcasis__.png" /> 
+
+
+<a ><div id="logo"  class="navbtn settD Spresent" > </div></a>
+<div id="content">
+<h3><b>TICKET N° /  {{ticket}} - {{time|date("m/d/Y")}} à {{time|date("H:i")}}<b></h3>
+{% for repa in repartition %}
+<h4>Commande N° : 0034 - {{repa.repartition}} </h4>
+{% endfor %}
+<table style="width:100%; ">
+<thead>
+<tr style="background-color:black; color:white; border: solid 1px black">
+<th style="background-color:black; color:white; border: solid 1px black">QTE</th>
+<th style="background-color:black; color:white; border: solid 1px black">DESIGNATION</th>
+<th style="background-color:black; color:white; border: solid 1px black">TOTAL</th>
+</thead>
+<tbody style="text-align:center;">
+{% for pro in products %}
+
+<tr>
+<td>{{pro.qte}}</td>
+<td>{{pro.produit}}</td>
+<td>{{pro.prix_ttc}}</td>
+</tr>
+{% endfor %}
+</thead>
+</table>
+
+<table >
+<thead>
+<tr style="text-align:left;">
+<th style="text-align:left;">REGLEMENTS</th>
+</tr>
+<hr/>
+<th></th>
+</thead>
+
+<tbody>
+<tr>
+<td>PRE-PAYEE({{name}})</td>
+<td style="text-align:center;">&nbsp;&nbsp;&nbsp;</td>
+<td style="text-align:right;">{{soldecommande}}</td>
+</tr>
+<tr>
+<td>SOLDE</td>
+<td style="text-align:center;">&nbsp;&nbsp;&nbsp;</td>
+<td style="text-align:right;">{{solde_apres}}</td>
+</tr>
+
+</tbody></table>
+ <br>
+ <br>
+<div id="qrcode"><barcode  code="{{code}}" type="C128A" /></div>
+<br>
+ 
+</div>
+      </body>
+     
+
+
+      
+
+  
+  

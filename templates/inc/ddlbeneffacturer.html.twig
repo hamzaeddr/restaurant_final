@@ -1,0 +1,6 @@
+<select id="slctB" class="slctB" required="required" style="margin-top: 10px;">
+    <option value="1" disabled="disabled" class="optClient" selected="selected">Select Client</option>
+    {% for item in lstbenef %}
+            <option class="optClient" value="{{item.Id}}">{{item.Beneficiaire}}</option>
+    {% endfor %}
+</select>

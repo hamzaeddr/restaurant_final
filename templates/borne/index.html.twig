@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{borne}}{% endblock %}
+
+{% block body %}
+
+   <style>
+    
+
+    
+
+  </style>
+  <head>
+    <link rel="stylesheet" href="{{ asset('css/borne.css')}}">
+
+</head>
+<body>
+  <div class="container">
+    <h1 style="font-size: 30px; text-align: center; padding: 10px; letter-spacing: 3px; background-color: #9932CC; margin: auto; color: white;">L'Casis University Restaurant - Rabat</h1>
+    <a ><div id="logo" style="content:url({{ asset('img/LCasis.png') }});" class="navbtn settD Spresent"> </div></a>
+    <a ><div id="pl" style="content:url({{ asset('img/padlocknonver.png') }});" class="navbtn settD Spresent"> </div></a>
+
+<h3 id="pm" > Veuillez vous Authentifier par Empreinte ou Carte PréPayée</h3>
+
+     
+  </div>
+ 
+</head>
+
+  
+  <canvas id="canvas"  style="display:none" hidden></canvas>
+  <div id="output" hidden>
+    <div id="outputMessage" hidden>No QR code detected.</div>
+    <div hidden><b>Data:</b> <span id="outputData" hidden></span></div>
+  </div>
+  <audio id="xyz" src="whatever_you_want.mp3" preload="auto" hidden></audio>
+<input id="borne" value="{{borne}}" hidden/>
+
+{% endblock %}
+{% block javascripts %}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+<script>
+   function AutoRefresh( t ) {
+               setTimeout("location.reload(true);", t);
+            }
+
+AutoRefresh(60000);
+$(document).ready(function(){
+
+
+
+var borne =  $('#borne').val();
+  $(function(){
+setInterval(oneSecondFunction, 2000);
+});
+function oneSecondFunction() {
+ $.ajax({
+                type:'POST',
+                url:"{{ path('bornetest') }}",
+                data:{'borne':borne},
+                success:function(html){
+                if(html == 'oui'){
+                  window.open("/bornevalide","_self")
+                }
+               
+                }
+                 });
+}
+                 });
+
+    
+  </script> 
+
+{% endblock %}

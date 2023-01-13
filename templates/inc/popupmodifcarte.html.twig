@@ -1,0 +1,54 @@
+<form method="POST" action="{{path('modifiercarte')}}">
+   
+     
+
+       
+        
+            <div class="modal-body ">
+               
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <input type="text" name="id" class="form-control" placeholder="ID Carte" value="{{list.Id}}" hidden>
+                            ID Carte : <input type="text" name="idcartem" class="form-control" placeholder="ID Carte" value="{{list.IdCarte}}" readonly>
+                            Nom Client : 
+                            <select class="form-control selectclientmodif" name="clientm" required="required" style="margin-bottom: 10px;">
+                                                    <option value="{{list.Client.id}}"  class="optclientadd" selected="selected">{{list.Client.client}}</option>
+                                                    {% for item in lst %}
+                                                    <option class="optClient" value="{{item.Id}}">{{item.Client}}</option>
+                                                    {% endfor %} 
+                                                </select>
+                            Nom Beneficiaire : 
+                            <select class="form-control selectbenefmodif" name="beneficiairem" required="required" style="margin-bottom: 10px;">
+                                                    <option value="{{list.Beneficiaire.id}}"  class="optbenefmodif" selected="selected">{{list.Beneficiaire.Beneficiaire}}</option>
+                                                </select>
+                        </div>
+                        <div class="col-lg-6">
+                            Date Validité : <input type="Date" name="datevaliditem" class="form-control" placeholder="ID Carte" value="{{list.DateValidite | date('Y-m-d')}}">
+                            Tarif : 
+                            <select class="form-control selecttarifmodif" name="tarifm" required="required" style="margin-bottom: 10px;">
+                                <option value="{{list.Tarif.id}}"  class="opttarifmodif" selected="selected">{{list.Tarif.Tarif}}</option>
+                                    {% for item in lsttarif %}
+                                    <option class="optClient" value="{{item.Id}}">{{item.Tarif}}</option>
+                                    {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                        Observation : <textarea class="form-control" name="obsm" id="exampleFormControlTextarea1" rows="3">{{list.Obs}}</textarea>
+                            
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+           
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-success ">Modifier</button>
+                <button type="button" class="btn btn-danger">Fermer</button>
+            </div>
+            
+            
+        
+    </form>

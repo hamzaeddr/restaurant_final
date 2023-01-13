@@ -1,0 +1,101 @@
+
+
+   <style>
+     html, body {
+      height: 100%;
+  margin: 0;
+page-break-inside: avoid;
+}
+#qrcode{
+  text-align: center;
+}
+</style>
+ 
+<body>
+<div align="center">
+
+ <img id="logo" src="http://127.0.0.1:8000/img/Lcasis__.png" /> 
+
+
+<a ><div id="logo"  class="navbtn settD Spresent" > </div></a>
+<div id="content">
+<table style="width:100%; ">
+<thead>
+<tr style="background-color:black; color:white; border: solid 1px black">
+<th style="background-color:black; color:white; border: solid 1px black">RELEVE DES RECHARGES RESTAURANT</th>
+</thead>
+
+</table>
+<p style="text-align:center;"><b>{{name}}</b></p>
+<p style="text-align:center;"><b>{{id}}</b></p>
+<hr>
+<table style="width:100%; ">
+<thead>
+<tr style="background-color:black; color:white; border: solid 1px black">
+<th style="background-color:black; color:white; border: solid 1px black">N°</th>
+<th style="background-color:black; color:white; border: solid 1px black">JOUR</th>
+<th style="background-color:black; color:white; border: solid 1px black">DATE</th>
+<th style="background-color:black; color:white; border: solid 1px black">MONTANT</th>
+</thead>
+<tbody style="text-align:center;">
+{% set count = 0 %}
+{% set total = 0 %}
+{% set trans_day_hash = { 
+        "Monday": "Lundi", 
+        "Tuesday": "Mardi", 
+        "Wednesday": "Mercredi", 
+        "Thursday": "Jeudi", 
+        "Friday": "Vendredi", 
+        "Saturday": "Samedi", 
+        "Sunday": "Dimanche" 
+    } 
+%}
+{% for recharge in data %}
+{% set count = count + 1 %}
+{% set total = total + recharge.MT_MVT %}
+<tr>
+<td style="text-align:center;">{{count}}</td>
+{# <td style="text-align:center;"> {{ recharge.DATE_MVT|format_datetime('full', 'full', locale='fr')|date('l') }}</td> #}
+<td style="text-align:center;"> {{ trans_day_hash[recharge.DATE_MVT|date('l')] }}</td>
+<td style="text-align:center;">{{recharge.DATE_MVT}}</td>
+<td style="text-align:center;">{{recharge.MT_MVT}}</td>
+</tr>
+
+{% endfor %}
+</tbody>
+</table>
+<hr>
+<table style="width:100%; ">
+<thead>
+<tr>
+
+<th >TOTAL RECHARGE :</th>
+<th style="text-decoration: underline;">{{total}} - DH</th>
+</tr>
+<tr>
+</hr>
+<th>SOLDE ACTUEL :</th>
+<th style="text-decoration: underline;">{{solde}} - DH</th>
+</tr>
+</thead>
+</table>
+
+<p style="text-align:center;"><b>{{ trans_day_hash[time|date('l')] }}  {{time}}</b></p>
+
+
+ 
+</div>
+<script>
+function btnClick(){
+    document.dispatchEvent(new KeyboardEvent('keydown', {'key': 'w', 'ctrlKey': true}));   
+}
+btnClick();
+</script>
+      </body>
+     
+
+
+      
+
+  
+  

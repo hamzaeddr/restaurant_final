@@ -1,0 +1,43 @@
+<form method="POST" action="{{path('supprimercarte')}}">
+   
+     
+
+       
+        
+            <div class="modal-body ">
+               
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6">
+                        <input type="text" name="id" class="form-control" placeholder="ID Carte" value="{{list.Id}}" hidden>
+                            ID Carte : <input type="text" name="idcartem" class="form-control" placeholder="ID Carte" value="{{list.IdCarte}}" readonly>
+                            Nom Client : 
+                            <input type="text" name="client" class="form-control" placeholder="ID Carte" value="{{list.Client.client}}" readonly>
+                            Nom Beneficiaire : 
+                            <input type="text" name="beneficiaire" class="form-control" placeholder="ID Carte" value="{{list.Beneficiaire.Beneficiaire}}" readonly>
+                        </div>
+                        <div class="col-lg-6">
+                            Date Validité : <input type="text" name="datevaliditem" class="form-control" placeholder="ID Carte" value="{{list.DateValidite | date('Y-m-d')}}" readonly>
+                            Tarif : 
+                            <input type="text" name="tarif" class="form-control" placeholder="ID Carte" value="{{list.Tarif.Tarif}}" readonly>
+                            
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                        Observation : <textarea class="form-control" name="obsm" id="exampleFormControlTextarea1" rows="3" value="{{list.Obs}}" readonly ></textarea>
+                            
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+           
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-success ">Supprimer</button>
+                <button type="button" class="btn btn-danger">Fermer</button>
+            </div>
+            
+            
+        
+    </form>

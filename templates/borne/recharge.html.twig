@@ -1,0 +1,70 @@
+{% set trans_day_hash = { 
+        "Monday": "Lundi", 
+        "Tuesday": "Mardi", 
+        "Wednesday": "Mercredi", 
+        "Thursday": "Jeudi", 
+        "Friday": "Vendredi", 
+        "Saturday": "Samedi", 
+        "Sunday": "Dimanche" 
+    } 
+%}
+
+   <style>
+     html, body {
+      height: 100%;
+  margin: 0;
+}
+#qrcode{
+  text-align: center;
+}
+
+</style>
+ 
+<body>
+<div align="center">
+
+ <img id="logo" src="http://127.0.0.1:8000/img/Lcasis__.png" /> 
+
+
+<a ><div id="logo"  class="navbtn settD Spresent" > </div></a>
+<div id="content">
+<table style="width:100%; ">
+<thead>
+<tr style="background-color:black; color:white; border: solid 1px black">
+<th style="background-color:black; color:white; border: solid 1px black">RECHARGE CARTE PRE-PAYEE</th>
+</thead>
+
+</table>
+<p style="text-align:center;"><b>{{ trans_day_hash[time|date('l')] }}  {{time}}</b></p>
+<p style="text-align:center;"><b>{{ code }} </b></p>
+<p><b>Nom / Prenom :</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>{{name}} </b></p>
+<p><b>ID Etudiant :</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>{{id}}</b></p>
+<p><b>ID Etablissement :</b>&nbsp;&nbsp;<b></b></p>
+<p><b>Recharge :</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>{{mantant}} Dh</b></p>
+<table style="width:100%; ">
+<thead>
+<tr style="background-color:black; color:white; border: solid 1px black">
+<th style="background-color:black; color:white; border: solid 1px black">RECHARGE NON ACTIVER</th>
+</thead>
+
+</table>
+
+ <div style="border: solid; padding:35px">
+    <legend>Signature :</legend>
+
+   
+  </div>
+  <br>
+<div id="qrcode"><barcode  code="{{code}}" type="C128A" /></div>
+
+
+ 
+</div>
+      </body>
+     
+
+
+      
+
+  
+  

@@ -1,0 +1,50 @@
+  <div class="modal-body">
+            <div class="row  m-auto py-3">
+                <div class="col-lg-4" style="margin-left: 8%;">
+                {# <img src="img/imghamza.jpg" alt="" class="T-img"> #}
+{% for item in list %}
+
+                </div>
+                <div class="col-lg-5" style="font-size: 13px; font-weight: 700;margin: -20px 58px ;">
+                   <p> 
+                        <div class="input-group">
+                            <span class="input-group-text">ID Produit</span>
+                            <input type="text" class="form-control idproduit" value="{{item.IdProduit}}" readonly>
+                        </div>
+                   </p> 
+                   <p>
+                        <div class="input-group">
+                            <span class="input-group-text">Produit</span>
+                            <input type="text" aria-label="First name" class="form-control NPro" value="{{item.Produit}}" readonly>
+                        </div>
+                   </p>  
+                   <p>
+                        <div class="input-group">
+                            <span class="input-group-text">Type produit</span>
+                            <input type="text" aria-label="First name" class="form-control"  value="{{item.TypeProduit.TypeProduit}}" readonly>
+                        </div>
+                   </p>  
+                   <p>
+                        <div class="input-group">
+                            <span class="input-group-text">Sous Famille</span>
+                            <input type="text" aria-label="First name" class="form-control" value="{{item.FamilleSousC.FamilleSousC}}" readonly>
+                        </div>
+                   </p>
+                   <p>visible : <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    Accomp : <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    Choix : <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                </p>
+
+                  
+
+                </div>
+                
+            </div>
+         
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">annuler</button>
+          <button type="button" class="btn btn-primary" data-id="{{item.IdProduit}}">Supprimer</button>
+        </div>
+ {% endfor %}
+    

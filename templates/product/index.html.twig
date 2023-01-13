@@ -1,0 +1,1434 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+{{ parent() }}
+<style>
+
+@font-face {
+   font-family: 'Material Icons';
+   font-style: normal;
+   font-weight: 400;
+   src: url(iconfont/MaterialIcons-Regular.eot); /* For IE6-8 */
+   src: local('Material Icons'),
+        local('MaterialIcons-Regular'),
+        url(iconfont/MaterialIcons-Regular.woff2) format('woff2'),
+        url(iconfont/MaterialIcons-Regular.woff) format('woff'),
+        url(iconfont/MaterialIcons-Regular.ttf) format('truetype');
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+</style>
+     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+     <section class="home-section" style="height: 980px;">
+        <nav >
+            <div class="sidebar-button">
+                <i class='bx bx-party sidebarBtn' style="font-size:45PX;position: relative;
+                top: 0px;left: 15px;"></i>
+
+            </div>
+           
+        </nav>
+<br>
+        <div class="tabs">
+
+            <input type="radio" id="tab1" name="tab-control" checked>
+            <input type="radio" id="tab2" name="tab-control">
+            <input type="radio" id="tab3" name="tab-control">
+            <input type="radio" id="tab4" name="tab-control" >
+            <input type="radio" id="tab5" name="tab-control">
+            <ul>
+              <li title="Features"><label for="tab1" role="button"><svg viewBox="0 0 24 24">
+                    <!-- <path d="M14,2A8,8 0 0,0 6,10A8,8 0 0,0 14,18A8,8 0 0,0 22,10H20C20,13.32 17.32,16 14,16A6,6 0 0,1 8,10A6,6 0 0,1 14,4C14.43,4 14.86,4.05 15.27,4.14L16.88,2.54C15.96,2.18 15,2 14,2M20.59,3.58L14,10.17L11.62,7.79L10.21,9.21L14,13L22,5M4.93,5.82C3.08,7.34 2,9.61 2,12A8,8 0 0,0 10,20C10.64,20 11.27,19.92 11.88,19.77C10.12,19.38 8.5,18.5 7.17,17.29C5.22,16.25 4,14.21 4,12C4,11.7 4.03,11.41 4.07,11.11C4.03,10.74 4,10.37 4,10C4,8.56 4.32,7.13 4.93,5.82Z" /> -->
+                  </svg><br><span>Familles</span></label></li>
+              <li title="Delivery Contents"><label for="tab2" role="button"><svg viewBox="0 0 24 24">
+                    <!-- <path d="M2,10.96C1.5,10.68 1.35,10.07 1.63,9.59L3.13,7C3.24,6.8 3.41,6.66 3.6,6.58L11.43,2.18C11.59,2.06 11.79,2 12,2C12.21,2 12.41,2.06 12.57,2.18L20.47,6.62C20.66,6.72 20.82,6.88 20.91,7.08L22.36,9.6C22.64,10.08 22.47,10.69 22,10.96L21,11.54V16.5C21,16.88 20.79,17.21 20.47,17.38L12.57,21.82C12.41,21.94 12.21,22 12,22C11.79,22 11.59,21.94 11.43,21.82L3.53,17.38C3.21,17.21 3,16.88 3,16.5V10.96C2.7,11.13 2.32,11.14 2,10.96M12,4.15V4.15L12,10.85V10.85L17.96,7.5L12,4.15M5,15.91L11,19.29V12.58L5,9.21V15.91M19,15.91V12.69L14,15.59C13.67,15.77 13.3,15.76 13,15.6V19.29L19,15.91M13.85,13.36L20.13,9.73L19.55,8.72L13.27,12.35L13.85,13.36Z" /> -->
+                  </svg><br><span>Sous Familles</span></label></li>
+              <li title="Shipping"><label for="tab3" role="button"><svg viewBox="0 0 24 24">
+                    <!-- <path d="M3,4A2,2 0 0,0 1,6V17H3A3,3 0 0,0 6,20A3,3 0 0,0 9,17H15A3,3 0 0,0 18,20A3,3 0 0,0 21,17H23V12L20,8H17V4M10,6L14,10L10,14V11H4V9H10M17,9.5H19.5L21.47,12H17M6,15.5A1.5,1.5 0 0,1 7.5,17A1.5,1.5 0 0,1 6,18.5A1.5,1.5 0 0,1 4.5,17A1.5,1.5 0 0,1 6,15.5M18,15.5A1.5,1.5 0 0,1 19.5,17A1.5,1.5 0 0,1 18,18.5A1.5,1.5 0 0,1 16.5,17A1.5,1.5 0 0,1 18,15.5Z" /> -->
+                  </svg><br><span>Produits</span></label></li>
+              <li title="Returns"><label for="tab4" role="button"><svg viewBox="0 0 24 24">
+                    <!-- <path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z" /> -->
+                  </svg><br><span>Menus</span></label></li>
+              <li title="accomp"><label for="tab5" role="button"><svg viewBox="0 0 24 24">
+                    <!-- <path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z" /> -->
+                  </svg><br><span>Accompagnements</span></label></li>    
+            </ul>
+            <div class="slider">
+              <div class="indicator"></div>
+            </div>
+            <div class="content">
+              <section class="famille navButton">
+          
+                      <table class="table_" style="font-size: small;">
+                          <thead>
+                              <tr>
+                                  <th>
+                                      ID Famille
+                                  </th>
+                                  <th>
+                                      Famille
+                                  </th>
+                                  <th>
+                                      Type famille
+                                  </th>
+                                  <th>
+                                      Nom Arabe
+                                  </th>
+                                  <th>
+                                      visible
+                                  </th>
+                              </tr>
+                          </thead>
+                          <tbody class="tbodyFamille" style="max-height: 24rem !important;">
+                          {% for item in famillecarte %}
+                              <tr>
+                                  <td>{{item.IdFamilleC}}</td>
+                                  <td>{{item.FamilleC}}</td>
+                                  <td>{{item.TypeFamille.TypeFamille}} </td>
+                                  <td >{{item.FArabeC}}</td>
+                                  <td><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
+                              </tr>
+                           {% endfor %}
+                          </tbody>
+                      </table>
+          
+                      <div class="row d-flex py-5">
+                          <div class="py-2 btn-n " style="width: 28%;display: flex;justify-content: space-around;margin: 0 5% 0 auto;">
+                                   
+                                          <!-- ============================ -->
+                                          <button class="btnMenu" data-bs-toggle="modal" data-bs-target="#btnSupprimer">
+                                              <img src="https://img.icons8.com/fluency/48/000000/filled-trash.png">
+                                               <p>Supprimer</p>
+                                          </button>
+          
+                                          <!-- ================================ -->
+                                          <button class="btnMenu famillemodifier" data-bs-toggle="modal" data-bs-target="#btnModifier">
+                                              <img src="https://img.icons8.com/color/48/000000/edit--v2.png">
+                                               <p>Modifier 
+                                          </p></button>
+          
+                                          <button class="btnMenu"  data-bs-toggle="modal" data-bs-target="#btnCreer">
+                                              <img src="https://img.icons8.com/color/48/000000/plus--v1.png">
+                                              <p>Creer
+                                          </p></button>
+              
+                                        
+                          </div>
+                      </div>                                                    
+              </section>
+
+              <section class="sous-famille">
+                    <br>
+                    <br>
+          
+                  <nav class="site-nav">
+                      <ul>
+                       {% for item in famillecarte %}
+                       {% if item.Photo != "" %}
+                         <li class="navIMG"><a href="#0"  data-id="{{item.id}}"><img src="..\Images\Carte\{{item.Photo}}" class="img-menu"><p>{{item.FamilleC}}</p></a></li>
+                         {% endif %}
+                       {% endfor %}
+                       
+                      </ul>
+                    </nav>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                  <table class="table_ " style="font-size: small;">
+                      <thead>
+                          <tr>
+                              <th>
+                                  ID Sous Famille
+                              </th>
+                              <th>
+                                  Sous Famille
+                              </th>
+                              <th>
+                                  Nom Arabe
+                              </th>
+                              <th>
+                                  visible
+                              </th>
+                          </tr>
+                      </thead>
+                      <tbody class='tbodySousFamille ' style="height: 24.5rem !important;">
+                        
+                      </tbody>
+                  </table>
+          
+                  <div class="row d-flex py-5">
+                      <div class="py-2 btn-n " style="width: 28%;display: flex;justify-content: space-around;margin: 0 5% 0 auto;">
+                             
+                                      <!-- ============================ -->
+                                      <button class="btnMenu" data-bs-toggle="modal" data-bs-target="#btnSupprimerSF">
+                                          <img src="https://img.icons8.com/fluency/48/000000/filled-trash.png">
+                                           <p>Supprimer</p>
+                                      </button>    
+          
+                                      <!-- ================================ -->
+                                      <button class="btnMenu sfmodifier" data-bs-toggle="modal" data-bs-target="#btnModifierSF">
+                                          <img src="https://img.icons8.com/color/48/000000/edit--v2.png">
+                                           <p>Modifier 
+                                      </p></button>
+          
+                                      <button class="btnMenu "  data-bs-toggle="modal" data-bs-target="#btnCreerSF">
+                                          <img src="https://img.icons8.com/color/48/000000/plus--v1.png">
+                                          <p>Creer
+                                      </p></button>
+          
+                                   
+                      </div>
+                  </div>
+          
+          
+              </section>
+              <section class="produitS" id="P">
+                  <br>
+                  <br>
+                  <nav class="site-nav">
+                      <ul>
+                       {% for item in famillecarte %}
+                       {% if item.Photo != "" %}
+                         <li class="navImgProduit"><a href="#0"  data-id="{{item.id}}"><img src="..\Images\Carte\{{item.Photo}}" class="img-menu"><p>{{item.FamilleC}}</p></a></li>
+                         {% endif %}
+                       {% endfor %}
+                       
+                      </ul>
+                    </nav> 
+                      <nav class="site-nav navSF" style="top: 312px;">
+                      <ul>
+                        
+                      </ul>
+                    </nav>                 
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                  <table class="table_ " style="font-size: small;margin-top: 113px;">
+                      <thead>
+                          <tr>
+                              <th>
+                                  ID Produit
+                              </th>
+                              <th>
+                                 Produit
+                              </th>
+                              <th>
+                                  Tarif standard
+                              </th>
+                              <th>
+                                  Tarif
+                              </th>
+                              <th>
+                                  Accomp
+                              </th>
+                              <th>
+                                  Visible
+                              </th>
+                          </tr>
+                      </thead>
+                      <tbody class="tbodyProduit" style="max-height: 27rem !important; height:600px;">
+                          
+                      </tbody>
+                  </table>
+          
+                  <div class="row d-flex py-5">
+                      <div class="py-2 btn-n " style="width: 28%;display: flex;justify-content: space-around;margin: 0 5% 0 auto;">
+                             
+                                      <!-- ============================ -->
+                                  
+                                      <button class="btnMenu produitdelete" data-bs-toggle="modal" data-bs-target="#btnSupprimerPr">
+                                          <img src="https://img.icons8.com/fluency/48/000000/filled-trash.png">
+                                           <p>Supprimer</p>
+                                      </button>
+          
+                                      <button class="btnMenu" data-bs-toggle="modal" data-bs-target="#btnImprimerPr">
+                                           <img src="https://img.icons8.com/ios/48/000000/barcode.png"/>
+                                           <p>Etiquette 
+                                      </p></button>
+          
+                                      <!-- ================================ -->
+                                      <button class="btnMenu produitedit" data-bs-toggle="modal" data-bs-target="#btnModifierPr">
+                                          <img src="https://img.icons8.com/color/48/000000/edit--v2.png">
+                                           <p>Modifier 
+                                      </p></button>
+          
+                                      <button class="btnMenu "  data-bs-toggle="modal" data-bs-target="#btnCreerPr">
+                                          <img src="https://img.icons8.com/color/48/000000/plus--v1.png">
+                                          <p>Creer
+                                      </p></button>
+          
+                                      
+                      </div>
+                  </div>
+          
+              </section>
+              <section class="menu">
+          
+                  <div class="row">
+                      <div class="col-lg-7 ">
+                      <br>
+                      <br>
+                          {# <nav> #}
+                              <ul>
+                                <li><a href="#0"><img src="img/boisson.png" alt="" class="img-menu"><p>Boisson</p></a></li>
+                                <li><a href="#0"><img src="img/boulangerie.png" alt="" class="img-menu"><p>Boulangerie</p></a></li>
+                                <li><a href="#0"><img src="img/salade.png" alt="" class="img-menu"><p>Salade</p></a></li>
+                                <!-- <li><a href="#0"><img src="img/patisserie.png" alt="" class="img-menu"><p>patisserie</p></a></li>
+                                <li><a href="#0"><img src="img/petit-dejeuner.png" alt="" class="img-menu"><p>P Dejeuner</p></a></li>
+                                <li><a href="#0"><img src="img/accomp.png" alt="" class="img-menu"><p>Accompagnement</p></a></li> -->
+                               
+                              </ul>
+                            {# </nav> #}
+                      <br>
+                      <br>
+                      <br>
+          
+                            <table class="table_ " style="font-size: small;">
+                              <thead >
+                                  <tr>
+                                      <th>
+                                          ID Produit
+                                      </th>
+                                      <th>
+                                         Produit
+                                      </th>
+                                      <th>
+                                         Prix
+                                      </th>
+                                      
+                                  </tr>
+                              </thead>
+                              <tbody style="max-height: 24rem !important;">
+                                  <tr>
+                                      <td>Key 1</td>
+                                      <td>Value 1</td>
+                                      <td>This is a comment 1</td>
+                                  </tr>
+                                  <tr>
+                                      <td>Key 1</td>
+                                      <td>Value 1</td>
+                                      <td>This is a comment 1</td>
+                                  </tr>
+                                  <tr>
+                                      <td>Key 1</td>
+                                      <td>Value 1</td>
+                                      <td>This is a comment 1</td>
+                                  </tr>
+                                  <tr>
+                                      <td>Key 1</td>
+                                      <td>Value 1</td>
+                                      <td>This is a comment 1</td>
+                                  </tr>
+                                  <tr>
+                                      <td>Key 1</td>
+                                      <td>Value 1</td>
+                                      <td>This is a comment 1</td>
+                                  </tr>
+                                  <tr>
+                                      <td>Key 1</td>
+                                      <td>Value 1</td>
+                                      <td>This is a comment 1</td>
+                                  </tr>
+                                  
+                              </tbody>
+                          </table>
+                  
+                          <div class="row d-flex py-5">
+                              <div class="py-2 btn-n " style="width: 58%;display: flex;justify-content: space-around;margin: 0 5% 0 auto;">
+                                        
+                                  <a>
+                                    <button class="btnMenu" data-bs-toggle="" data-bs-target="" id="btnCompo">
+                                                  <img src="https://img.icons8.com/color/48/000000/multi-edit.png"/>
+                                                   
+                                                   <p>Composition</p>
+                                              </button>
+                                  </a>            
+                                              <button class="btnMenu" data-bs-toggle="modal" data-bs-target="#btnSupprimerM">
+                                                  <img src="https://img.icons8.com/fluency/48/000000/filled-trash.png">
+                                                   <p>Supprimer</p>
+                                              </button>
+          
+                                              <button class="btnMenu" data-bs-toggle="modal" data-bs-target="#btnModifierM">
+                                                  <img src="https://img.icons8.com/color/48/000000/edit--v2.png">
+                                                   <p>Modifier 
+                                              </p></button>
+          
+                                  <button class="btnMenu "  data-bs-toggle="modal" data-bs-target="#btnCreerM">
+                                                  <img src="https://img.icons8.com/color/48/000000/plus--v1.png">
+                                                  <p>Creer
+                                              </p></button>
+                                              <!-- ============================ -->
+                                          
+                  
+                                              <!-- ================================ -->
+                                            
+                  
+                                            
+          
+                                            
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-lg-4 " style="margin-left: 5%;">
+          
+                          <div class="row ">
+          
+                          <table class="table_ " style="font-size: small;">
+                              <thead >
+                                  <tr>
+                                      <th class="text-center">
+                                         Produit
+                                      </th>
+                                      <th class="text-center">
+                                          Choix
+                                      </th>
+                                      
+                                  </tr>
+                              </thead>
+                              <tbody style="max-height: 24rem !important;">
+                                  <tr >
+                                      <td class="text-center">Key 1</td>
+                                      <td class="text-center"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
+                                  </tr>
+                                  <tr>
+                                      <td class="text-center">Key 1</td>
+                                      <td class="text-center"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
+                                  </tr>
+                                  <tr>
+                                      <td class="text-center">Key 1</td>
+                                      <td class="text-center"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
+                                  </tr>
+                                  <tr>
+                                      <td class="text-center">Key 1</td>
+                                      <td class="text-center"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
+                                  </tr>
+                                  <tr>
+                                      <td class="text-center">Key 1</td>
+                                      <td class="text-center"> <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
+                                  </tr>
+                                  <tr>
+                                      <td class="text-center">Key 1</td>
+                                      <td class="text-center"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
+                                  </tr>
+                                  
+                              </tbody>
+                          </table>
+          
+                          </div>
+                          <div class="row py-5 ">
+          
+                              <table class="table_" style="font-size: small;">
+                                                  <thead >
+                                                      <tr>
+                                                          <th class="text-center">
+                                                              Produit
+                                                          </th>
+                                                      
+                                                          
+                                                      </tr>
+                                                  </thead>
+                                                  <tbody style="max-height:9rem !important;">
+                                                      <tr>
+                                                          <td class="text-center">Value 1</td>
+                                                      </tr>
+                                                      <tr>
+                                                          <td class="text-center"> Value 1</td>
+                                                      </tr>
+                                                      <tr>
+                                                          <td class="text-center">Value 1</td>
+                                                      </tr>
+                                                      <tr>
+                                                          <td class="text-center">Value 1</td>
+                                                      </tr>
+                                                      <tr>
+                                                          <td class="text-center">Value 1</td>
+                                                      </tr>
+                                                      <tr>
+                                                          <td class="text-center">Value 1</td>
+                                                      </tr>
+                                                      
+                                                  </tbody>
+                              </table>
+          
+                          </div>
+                          
+                      </div>
+                  </div>
+          
+              </section>
+              <section class="accomp">
+          <br>
+          <br>
+                  <nav class="site-nav">
+                      <ul>
+                        <li><a href="#0"><img src="img/boisson.png" alt="" class="img-menu"><p>Boisson</p></a></li>
+                        <li><a href="#0"><img src="img/boulangerie.png" alt="" class="img-menu"><p>Boulangerie</p></a></li>
+                        <li><a href="#0"><img src="img/salade.png" alt="" class="img-menu"><p>Salade</p></a></li>
+                        <li><a href="#0"><img src="img/patisserie.png" alt="" class="img-menu"><p>patisserie</p></a></li>
+                        <li><a href="#0"><img src="img/petit-dejeuner.png" alt="" class="img-menu"><p>P Dejeuner</p></a></li>
+                        <li><a href="#0"><img src="img/accomp.png" alt="" class="img-menu"><p>Accompagnement</p></a></li>
+                       
+                      </ul>
+                    </nav>
+          <br>
+          <br>
+          <br>
+                  <table class="table_ " style="font-size: small;">
+                      <thead>
+                          <tr>
+                              <th>
+                                  ID Sous Famille
+                              </th>
+                              <th>
+                                  Sous Famille
+                              </th>
+                              <th>
+                                  visible
+                              </th>
+                          </tr>
+                      </thead>
+                      <tbody style="max-height: 24rem !important;">
+                          <tr>
+                              <td>Key 1</td>
+                              <td>Value 1</td>
+                              <td><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
+                          </tr>
+                          <tr>
+                              <td>Key 1</td>
+                              <td>Value 1</td>
+                              <td><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
+                          </tr>
+                          <tr>
+                              <td>Key 1</td>
+                              <td>Value 1</td>
+                              <td><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
+                          </tr>
+                          <tr>
+                              <td>Key 1</td>
+                              <td>Value 1</td>
+                              <td><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
+                          </tr>
+                          <tr>
+                              <td>Key 1</td>
+                              <td>Value 1</td>
+                              <td><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
+                          </tr>
+                          <tr>
+                              <td>Key 1</td>
+                              <td>Value 1</td>
+                              <td><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
+                          </tr>
+                          <tr>
+                              <td>Key 1</td>
+                              <td>Value 1</td>
+                              <td><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
+                          </tr>
+                          <tr>
+                              <td>Key 1</td>
+                              <td>Value 1</td>
+                              <td><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
+                          </tr>
+                          <tr>
+                              <td>Key 1</td>
+                              <td>Value 1</td>
+                              <td><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
+                          </tr>
+                          <tr>
+                              <td>Key 1</td>
+                              <td>Value 1</td>
+                              <td><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
+                          </tr>
+                          <tr>
+                              <td>Key 1</td>
+                              <td>Value 1</td>
+                              <td><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
+                          </tr>
+                          <tr>
+                              <td>Key 1</td>
+                              <td>Value 1</td>
+                              <td><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
+                          </tr>
+                          <tr>
+                              <td>Key 1</td>
+                              <td>Value 1</td>
+                              <td><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
+                          </tr>
+                          <tr>
+                              <td>Key 1</td>
+                              <td>Value 1</td>
+                              <td><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
+                          </tr>
+                      </tbody>
+                  </table>
+          
+                  <div class="row d-flex py-5">
+                      <div class="py-2 btn-n " style="width: 28%;display: flex;justify-content: space-around;margin: 0 5% 0 auto;">
+                              
+                          <button class="btnMenu" data-bs-toggle="modal" data-bs-target="#btnSupprimerSF">
+                              <img src="https://img.icons8.com/fluency/48/000000/filled-trash.png">
+                               <p>Supprimer</p>
+                          </button>
+                                      <!-- ============================ -->
+                                  
+          
+                                      <!-- ================================ -->
+                                      <button class="btnMenu" data-bs-toggle="modal" data-bs-target="#btnModifierSF">
+                                          <img src="https://img.icons8.com/color/48/000000/edit--v2.png">
+                                           <p>Modifier 
+                                      </p></button>
+          
+                                    
+                                      <button class="btnMenu "  data-bs-toggle="modal" data-bs-target="#btnCreerSF">
+                                          <img src="https://img.icons8.com/color/48/000000/plus--v1.png">
+                                          <p>Creer
+                                      </p></button>
+                      </div>
+                  </div>
+          
+          
+              </section>
+                
+            </div>
+          </div>
+    </section>
+
+    <!-- Button trigger modal -->
+
+
+
+  
+  <!-- Modal Famille -->
+  <div class="modal " id="btnSupprimer" >
+      
+    <div class="modal-dialog " >
+      <div class="modal-content " style="margin-top: 50%;"> 
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Supprimer un produit</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="row  m-auto py-3">
+                <div class="col-lg-3">
+                <img src="img/imghamza.jpg" alt="" class="T-img">
+
+                </div>
+                <div class="col-lg-6 model-supp" style="font-size: 13px; font-weight: 700;margin: -20px 58px ;">
+                {# ******************* #}
+                </div>
+                
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">annuler</button>
+          <button type="button" class="btn btn-primary" id="supprimerFamille">Supprimer</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="modal" id="btnModifier" >
+      
+    <div class="modal-dialog " >
+      <div class="modal-content " style="margin-top: 50%;"> 
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modifier un produit</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form>
+            <div class="modal-body modif-modal">
+                {# ============ #}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                <button type="button" class="btn btn-primary modifierfamille">Modifier</button>
+            </div>
+        </form>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="modal ajou" id="btnCreer" >
+      
+    <div class="modal-dialog " >
+      <div class="modal-content " style="margin-top: 50%;"> 
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ajouter une Famille</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form>
+        <div class="modal-body">
+            <div class="row  m-auto py-3">
+                <div class="col-lg-4">
+                    <div class="py-2">
+                        <img src="" alt="" class="T-img">
+                    </div>
+                
+                <div class="mb-3">
+                    <label for="formFileSm" class="form-label">Ajouter une image</label>
+                    <input class="form-control form-control-sm" id="formFileSm" type="file">
+                  </div>
+                </div>
+                <div class="col-lg-6" style="font-size: 13px; font-weight: 700;margin: -20px 25px ;">
+                 
+                   <p>
+                        <div class="input-group">
+                            <span class="input-group-text">Famille</span>
+                            <input type="text" aria-label="First name" class="form-control" name="famille" id="familles">
+                        </div>
+                   </p>  
+                   <p>
+                        <div class="input-group">
+                            <select class="form-control" name="tfamille" id="typefamille">
+
+                                <option value="">Type Famille</option>
+                                {% for item in typefamille %}
+                                  <option  value="{{item.id}}">{{item.TypeFamille}}</option>
+                                {% endfor %}  
+                               
+                              </select>
+                        </div>
+                   </p>  
+                   <p>
+                        <div class="input-group">
+                            <span class="input-group-text">Nom Arabe</span>
+                            <input type="text" aria-label="First name" class="form-control" name="farabe" id="famillearabe">
+                        </div>
+                   </p>
+                   <p>visible : <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></p>
+                </div>
+                
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+          <button type="button" class="btn btn-primary familleajouter">Ajouter</button>
+        </div>
+        </form>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Modal Sous Famille -->
+  <div class="modal " id="btnSupprimerSF" >
+      
+    <div class="modal-dialog " >
+      <div class="modal-content " style="margin-top: 50%;"> 
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Supprimer un produit</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="row  m-auto py-3">
+                <!-- <div class="col-lg-3">
+                <img src="img/imghamza.jpg" alt="" class="T-img">
+
+                </div> -->
+                <div class="col-lg-10 modal-suppsf" style="font-size: 13px; font-weight: 700;margin: -20px 58px ;">
+                 
+                </div>
+                
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">annuler</button>
+          <button type="button" class="btn btn-primary" id="supprimerSousFamille" >Supprimer</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="modal " id="btnModifierSF" >
+      
+    <div class="modal-dialog " >
+      <div class="modal-content " style="margin-top: 50%;"> 
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modifier un produit</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="row  m-auto py-3">
+                <div class="modalmodifSF">
+
+                </div>
+                <!-- <div class="col-lg-4">
+                    <div class="py-2">
+                        <img src="img/imghamza.jpg" alt="" class="T-img">
+                    </div>
+                
+                <div class="mb-3">
+                    <label for="formFileSm" class="form-label">Ajouter une image</label>
+                    <input class="form-control form-control-sm" id="formFileSm" type="file">
+                  </div>
+                </div> -->
+
+                <!-- ============================= -->
+               
+                
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+          <button class="btn btn-primary btnmodifSF">Modifier</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="modal " id="btnCreerSF" >
+      
+    <div class="modal-dialog " >
+      <div class="modal-content " style="margin-top: 50%;"> 
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ajouter un Sous Famille</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+      
+        {# {{path('addSousFamille')}} #}
+        <div class="modal-body">
+            <div class="row  m-auto py-3">
+                <!-- <div class="col-lg-4">
+                    <div class="py-2">
+                        <img src="" alt="" class="T-img">
+                    </div>
+                
+                <div class="mb-3">
+                    <label for="formFileSm" class="form-label">Ajouter une image</label>
+                    <input class="form-control form-control-sm" id="formFileSm" type="file">
+                  </div>
+                </div> -->
+                <div class="col-lg-10" style="font-size: 13px; font-weight: 700;margin: -20px 25px ;">
+                    {# <p> 
+                         <div class="input-group">
+                             <span class="input-group-text">ID S.Famille</span>
+                             <input type="text" name="idsousfamille" class="form-control idsousfamilleA" >
+                         </div>
+                    </p>  #}
+                    <p>
+                         <div class="input-group">
+                             <span class="input-group-text">Sous Famille</span>
+                             <input type="text" name="sousfamille" class="form-control sousfamilleA" >
+                         </div>
+                         
+                    </p>  
+                    <p>
+                        
+                           <div class="input-group">
+                            <select class="form-control" id="sfamille" name="famille">
+
+                                <option value="">Famille</option>
+                                {% for item in famillecarte %}
+                                  <option  value="{{item.id}}">{{item.FamilleC}}</option>
+                                {% endfor %}  
+                               
+                              </select>
+                        </div>
+                    </p>  
+                    <p>
+                         <div class="input-group">
+                             <span class="input-group-text">Nom Arabe</span>
+                             <input type="text" name="farabe" class="form-control farabeA" >
+                         </div>
+                    </p>
+                    <p>visible : <input class="form-check-input" type="checkbox" value="" id="sfcheck"></p>
+                 </div>
+                
+            </div>
+        </div>
+    
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+          <button  class="btn btn-primary" id="btnaddpro">Ajouter</button>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Modal  Produit -->
+  <div class="modal " id="btnSupprimerPr" >
+      
+    <div class="modal-dialog  " >
+      <div class="modal-content ModalP" style="margin-top: 20%;"> 
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Supprimer un produit</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modalsupppro">
+           <!-- ================================ -->
+        </div>
+       
+      </div>
+    </div>
+
+  </div>
+
+  <div class="modal " id="btnModifierPr" >
+      
+    <div class="modal-dialog  " >
+        <div class="modal-content ModalP" style="margin-top: 20%;"> 
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modifier un produit</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modalmodifpro">
+              <!-- ========================================== -->
+          </div>
+          <!-- <div class="modal-body">
+              <div class="row  m-auto py-3">
+                  <div class="col-lg-4" style="margin-left: 8%;">
+                  <img src="img/imghamza.jpg" alt="" class="T-img">
+  
+                  </div>
+                  <div class="col-lg-5" style="font-size: 13px; font-weight: 700;margin: -20px 58px ;">
+                     <p> 
+                          <div class="input-group">
+                              <span class="input-group-text">ID Produit</span>
+                              <input type="text" aria-label="First name" class="form-control" value="F0001" disabled>
+                          </div>
+                     </p> 
+                     <p>
+                          <div class="input-group">
+                              <span class="input-group-text">Produit</span>
+                              <input type="text" aria-label="First name" class="form-control" >
+                          </div>
+                     </p>  
+                     <p>
+                          <div class="input-group">
+                              <span class="input-group-text">Type produit</span>
+                              <div class="dropdown">
+                                <button class="form-control dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                  Boisson
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                  <li><a class="dropdown-item" href="#">Action</a></li>
+                                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                </ul>
+                              </div>
+                          </div>
+                     </p>  
+                     <p>
+                          <div class="input-group">
+                              <span class="input-group-text">Sous Famille</span>
+                              <div class="dropdown">
+                                <button class="form-control dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                  Boisson
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                  <li><a class="dropdown-item" href="#">Action</a></li>
+                                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                </ul>
+                              </div>
+                          </div>
+                     </p>
+                     <p>visible : <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                      Accomp : <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                      Choix : <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                  </p>
+  
+                    
+  
+                  </div>
+                  
+              </div>
+              <div class="row py-2">
+                  <div class="col-lg-10 m-auto">
+                      <table class="table_ " style="font-size: small;width: 580px;font-size: 9px !important;">
+                          <thead>
+                              <tr>
+                                  <th>
+                                     Tarification
+                                  </th>
+                                  <th>
+                                     Prix HT
+                                  </th>
+                                  <th>
+                                      Taux
+                                  </th>
+                                  <th>
+                                      Prix TTC
+                                  </th>
+                                  <th>
+                                      Visible
+                                  </th>
+                                  
+                              </tr>
+                          </thead>
+                          <tbody style="max-height: 18rem !important;">
+                         
+                          </tbody>
+                      </table>
+                  </div>
+                 
+              </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">annuler</button>
+            <button type="button" class="btn btn-primary">Modifier</button>
+          </div> -->
+        </div>
+      </div>
+
+  </div>
+
+  <div class="modal modalajouter" id="btnCreerPr" >
+      
+   <div class="modal-dialog  " >
+        <div class="modal-content ModalP" style="margin-top: 20%;"> 
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Ajouter un produit </h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="row  m-auto py-3">
+                <div class="col-lg-4" style="margin-left: 8%;">
+                <img src="img/imghamza.jpg" alt="" class="T-img">
+
+                </div>
+                <div class="col-lg-5" style="font-size: 13px; font-weight: 700;margin: -20px 58px ;">
+                   <p> 
+                        {# <div class="input-group">
+                            <span class="input-group-text">ID Produit</span>
+                            <input type="text" aria-label="First name" class="form-control IDPR"  >
+                        </div> #}
+                   </p> 
+                     <p>   
+                        <div class="input-group">
+                            <span class="input-group-text">Produit</span>
+                            <input type="text" aria-label="First name" class="form-control PRR"  >
+                        </div>
+                   </p> 
+                  
+                       <p>    
+                        <div>     
+                              
+                            <div class="input-group">
+                                 <select class="form-control SFM">
+
+                                <option value="O">Sous Famille</option>
+                                {% for item in famillesousc %}
+                                  <option  value="{{item.id}}">{{item.FamilleSousC}}</option>
+                                {% endfor %}  
+                               
+                              </select>
+                            </div>
+                         </div></p>  
+                      <p>    
+                   <div>
+                          <select class="form-control TPR">
+
+                                <option value="O">Type Produit</option>
+                                {% for item in typeproduit %}
+                                  <option  value="{{item.id}}">{{item.TypeProduit}}</option>
+                                {% endfor %}  
+                               
+                              </select>
+</p> 
+</div>
+
+                   <p>visible : <input class="form-check-input" name="visible" type="checkbox" value="" id="flexCheckDefault">
+                    Accomp : <input class="form-check-input" name="accomp" type="checkbox" value="" id="flexCheckDefault">
+                    Choix : <input class="form-check-input" name="choix" type="checkbox" value="" id="flexCheckDefault">
+                </p>
+
+                  
+
+                </div>
+                
+            </div>
+            <div class="row py-2">
+                <div class="col-lg-10 m-auto">
+                    <table class="table_ " style="font-size: small;width: 580px;font-size: 9px !important;">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Type Tarif
+                                </th>
+                                <th>
+                                   tarif
+                                </th>
+                              
+                            </tr>
+                        </thead>
+                        <tbody class="tbodytarif" style="max-height: 18rem !important;">
+                            {% for item in typetarif %}
+                            <tr>
+                                <td data-id="{{item.id}}">{{item.Tarif}}</td>
+                                <td><input class="form-control"  type="text"  id="{{item.id}}"></td>
+                                <!-- <td><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td> -->
+                                <!-- <td><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td> -->
+                            </tr>
+                         
+                          {% endfor %}
+                           
+                        </tbody>
+                    </table>
+                </div>
+               
+            </div>
+        </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">annuler</button>
+            <button type="button" class="btn btn-primary BTNAJTPR" data-id="">Ajouter</button>
+          </div>
+        </div>
+      </div>
+
+  </div>
+
+  <!-- Modal  Produit -->
+  <div class="modal " id="btnSupprimerM" >
+      
+    <div class="modal-dialog  " >
+      <div class="modal-content ModalP" style="margin-top: 20%;"> 
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Supprimer un produit</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="row  m-auto py-3">
+                <div class="col-lg-4" style="margin-left: 8%;">
+                <img src="img/imghamza.jpg" alt="" class="T-img">
+
+                </div>
+                <div class="col-lg-5" style="font-size: 13px; font-weight: 700;margin: -20px 58px ;">
+                   <p> 
+                        <div class="input-group">
+                            <span class="input-group-text">ID Produit</span>
+                            <input type="text" aria-label="First name" class="form-control" value="F0001" disabled>
+                        </div>
+                   </p> 
+                   <p>
+                        <div class="input-group">
+                            <span class="input-group-text">Produit</span>
+                            <input type="text" aria-label="First name" class="form-control" value="Boisson" disabled>
+                        </div>
+                   </p>  
+                   <p>
+                        <div class="input-group">
+                            <span class="input-group-text">Type produit</span>
+                            <input type="text" aria-label="First name" class="form-control"  value="Article" disabled>
+                        </div>
+                   </p>  
+                   <p>
+                        <div class="input-group">
+                            <span class="input-group-text">Sous Famille</span>
+                            <input type="text" aria-label="First name" class="form-control" value="مشروب" disabled>
+                        </div>
+                   </p>
+                   <p>visible : <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    Accomp : <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    Choix : <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                </p>
+
+                  
+
+                </div>
+                
+            </div>
+            <div class="row py-2">
+                <div class="col-lg-10 m-auto">
+                    <table class="table_ " style="font-size: small;width: 580px;font-size: 9px !important;">
+                        <thead>
+                            <tr>
+                                <th>
+                                    ID Produit
+                                </th>
+                                <th>
+                                   Produit
+                                </th>
+                                <th>
+                                    Tarif standard
+                                </th>
+                                <th>
+                                    Tarif
+                                </th>
+                                <th>
+                                    Accomp
+                                </th>
+                                <th>
+                                    Visible
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody style="max-height: 18rem !important;">
+                            <tr>
+                                <td>Key 1</td>
+                                <td>Value 1</td>
+                                <td>10</td>
+                                <td><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
+                                <td><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
+                                <td><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
+                            </tr>
+                            <tr>
+                                <td>Key 1</td>
+                                <td>Value 1</td>
+                                <td>10</td>
+                                <td><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
+                                <td><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
+                                <td><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                </div>
+               
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">annuler</button>
+          <button type="button" class="btn btn-primary">Supprimer</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="modal " id="btnModifierM" >
+      
+    <div class="modal-dialog  " >
+        <div class="modal-content ModalP" style="margin-top: 20%;"> 
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modifier un produit</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <div class="row  m-auto py-3">
+                  <div class="col-lg-4" style="margin-left: 8%;">
+                  <img src="img/imghamza.jpg" alt="" class="T-img">
+  
+                  </div>
+                  <div class="col-lg-5" style="font-size: 13px; font-weight: 700;margin: -20px 58px ;">
+                     <p> 
+                          <div class="input-group">
+                              <span class="input-group-text">ID Produit</span>
+                              <input type="text" aria-label="First name" class="form-control" value="F0001" disabled>
+                          </div>
+                     </p> 
+                     <p>
+                          <div class="input-group">
+                              <span class="input-group-text">Produit</span>
+                              <input type="text" aria-label="First name" class="form-control" >
+                          </div>
+                     </p>  
+                     <p>
+                          <div class="input-group">
+                              <span class="input-group-text">Type produit</span>
+                              <div class="dropdown">
+                                <button class="form-control dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                  Boisson
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                  <li><a class="dropdown-item" href="#">Action</a></li>
+                                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                </ul>
+                              </div>
+                          </div>
+                     </p>  
+                     <p>
+                          <div class="input-group">
+                              <span class="input-group-text">Sous Famille</span>
+                              <div class="dropdown">
+                                <button class="form-control dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                  Boisson
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                  <li><a class="dropdown-item" href="#">Action</a></li>
+                                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                </ul>
+                              </div>
+                          </div>
+                     </p>
+                     <p>visible : <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                      Accomp : <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                      Choix : <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                  </p>
+  
+                    
+  
+                  </div>
+                  
+              </div>
+              <div class="row py-2">
+                  <div class="col-lg-10 m-auto">
+                      <table class="table_ " style="font-size: small;width: 580px;font-size: 9px !important;">
+                          <thead>
+                              <tr>
+                                  <th>
+                                     Tarification
+                                  </th>
+                                  <th>
+                                     Prix HT
+                                  </th>
+                                  <th>
+                                      Taux
+                                  </th>
+                                  <th>
+                                      Prix TTC
+                                  </th>
+                                  <th>
+                                      Visible
+                                  </th>
+                                  
+                              </tr>
+                          </thead>
+                          <tbody style="max-height: 18rem !important;">
+                           
+                          </tbody>
+                      </table>
+                  </div>
+                 
+              </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">annuler</button>
+            <button type="button" class="btn btn-primary">Modifier</button>
+          </div>
+        </div>
+      </div>
+
+  </div>
+
+  <div class="modal " id="btnCreerM" >
+      
+   <div class="modal-dialog  " >
+        <div class="modal-content ModalP" style="margin-top: 20%;"> 
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Ajouter un produit</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <div class="row  m-auto py-3">
+                  <div class="col-lg-4" style="margin-left: 8%;">
+                  <img src="img/imghamza.jpg" alt="" class="T-img">
+  
+                  </div>
+                  <div class="col-lg-5" style="font-size: 13px; font-weight: 700;margin: -20px 58px ;">
+                   
+                     <p>
+                          <div class="input-group">
+                              <span class="input-group-text">Produit</span>
+                              <input type="text" aria-label="First name" class="form-control" >
+                          </div>
+                     </p>  
+                     <p>
+                          <div class="input-group">
+                              <span class="input-group-text">Type produit</span>
+                              <div class="dropdown">
+                                <button class="form-control dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                  Boisson
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                  <li><a class="dropdown-item" href="#">Action</a></li>
+                                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                </ul>
+                              </div>
+                          </div>
+                     </p>  
+                     <p>
+                          <div class="input-group">
+                              <span class="input-group-text">Sous Famille</span>
+                              <div class="dropdown">
+                                <button class="form-control dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                  Boisson
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                  <li><a class="dropdown-item" href="#">Action</a></li>
+                                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                </ul>
+                              </div>
+                          </div>
+                     </p>
+                     <p>visible : <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                      Accomp : <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                      Choix : <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                  </p>
+  
+                    
+  
+                  </div>
+                  
+              </div>
+              <div class="row py-2">
+                  <div class="col-lg-10 m-auto">
+                    <table class="table_ " style="font-size: small;width: 580px;font-size: 9px !important;">
+                        <thead>
+                            <tr>
+                                <th>
+                                   Tarification
+                                </th>
+                                <th>
+                                   Prix HT
+                                </th>
+                                <th>
+                                    Taux
+                                </th>
+                                <th>
+                                    Prix TTC
+                                </th>
+                                <th>
+                                    Visible
+                                </th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody style="max-height: 18rem !important;">
+                         
+                        </tbody>
+                    </table>
+                  </div>
+                 
+              </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">annuler</button>
+            <button type="button" class="btn btn-primary">Ajouter</button>
+          </div>
+        </div>
+      </div>
+
+  </div>
+
+
+{% endblock %}

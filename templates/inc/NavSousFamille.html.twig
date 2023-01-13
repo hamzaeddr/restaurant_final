@@ -1,0 +1,9 @@
+    <ul>
+
+        {% for item in lstSousF %}
+            {# {% if item.Photo != "" %} #}
+                <li style="background-color: transparent;" class="navImgProduit42"><a href="#0"  data-id="{{item.id}}"><img src="..\Images\Carte\{{item.Photo}}" class="img-menu"><p>{{item.FamilleSousC}}</p></a></li>
+            {# {% endif %} #}
+
+        {% endfor %}
+    </ul>

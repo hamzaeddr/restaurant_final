@@ -1,0 +1,19 @@
+ <tbody class="tbodycalcul" style="max-height: 45rem !important;">
+ {% for item in lstPro %}
+                        <tr>
+                        <td style="display:none">{{item.id}}</td>
+                            <td>{{item.Produit.IdProduit}}</td>
+                            <td>{{item.Produit.Produit}}</td>
+                            <td>{{item.Unite}}</td>
+                            <td>
+                                <input type="number" class="form-control qteS" id="" value="{{item.StockCarte}}">
+                            </td>
+                            <td>
+                                <input type="number" class="form-control qteC" id="" value="{{item.StockCmd}}">
+                            </td>
+                            <td>
+                                <input type="number" class="form-control qteR" id="" value="{{item.StockReste}}">
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>

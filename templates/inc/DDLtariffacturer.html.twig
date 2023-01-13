@@ -1,0 +1,6 @@
+<select class="form-control selecttariffacturer" required="required" style="margin-bottom: 10px;" >
+    <option value="1" disabled="disabled" class="opttariffacturer" selected="selected">Select tarif</option>
+        {% for item in lsttarif %}
+        <option class="optClientF"  value="{{item.ID_Tarif}}">{{item.Tarif}}</option>
+        {% endfor %}
+ </select>

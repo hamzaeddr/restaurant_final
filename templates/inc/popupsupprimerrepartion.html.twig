@@ -1,0 +1,23 @@
+  <div class="modal-body ">
+               
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            {# ID Carte : <input type="text" name="idcarte" class="form-control idcarte" placeholder="ID Carte" value={{lstRep}} readonly> #}
+                            ID Repartition : <input type="text" name="idrepartition" class="form-control idrepartitionS" placeholder="ID Repartition" value="{{lstRep.IdRepartition}}" readonly>
+                            Libellé : <input type="text" name="libelle" class="form-control libelleS" placeholder="Libellé" value="{{lstRep.Repartition}}" readonly>
+                        </div>
+                        <div class="col-lg-6">
+                            Pax : <input type="text" name="pax" class="form-control paxS" placeholder="Pax" value="{{lstRep.Pax}}" readonly>
+                            Heure : <input type="text" name="heure" class="form-control heureS" placeholder="Heure" value="{{lstRep.Heure | date('H:m:i')}}" readonly>
+                            
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+           
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-success btnsupprimercarteadd" >Supprimer</button>
+                <button type="button" class="btn btn-danger">Fermer</button>
+            </div>

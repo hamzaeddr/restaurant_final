@@ -1,0 +1,24 @@
+<div class="modal-body ">
+               
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            {# ID Carte : <input type="text" name="idcarte" class="form-control idcartePP" data-id="{{lstRep.ID_Carte}}" placeholder="ID Carte" value="{{lstRep.ID_Carte}}" readonly> #}
+                            Produit : <input type="text" name="idrepartition" class="form-control idproduitp" data-id="{{lstRep.id}}" value="{{lstRep.Produit.Produit}}" readonly>
+                            famille : <input type="text" name="libelle" class="form-control idrepp" data-id="{{lstRep.Repartition.id}}" placeholder="Libellé" value="{{lstRep.Produit.FamilleSousC.FamilleSousC}}" readonly>
+                        </div>
+                        <div class="col-lg-6">
+                            Acc : <input type="text" name="pax" class="form-control paxM" value="" readonly>
+                            Qte : <input type="text" name="heure" class="form-control heureM" placeholder="Heure" value="{{lstRep.StockCarte}}" readonly>
+                            
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+           
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-success btnsuppro" >Supprimer</button>
+                <button type="button" class="btn btn-danger">Fermer</button>
+            </div>
+          

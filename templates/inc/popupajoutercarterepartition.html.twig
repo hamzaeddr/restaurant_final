@@ -1,0 +1,40 @@
+
+            <div class="modal-body ">
+               
+                <div class="container">
+                    <div class="row">
+                        {# <div class="col-lg-6">
+                            ID Carte : <input type="text" name="idcarte" class="form-control idcarte" placeholder="ID Carte" value={{lstRep}} readonly>
+                            ID Repartition : <input type="text" name="idrepartition" class="form-control idrepartition" placeholder="ID Repartition"> #}
+                            {# Libellé :  #}
+                            {# <input type="text" name="libelle" class="form-control libelle" placeholder="Libellé"> #}
+                            {# <select id="slct" class="slct slctrep form-control" required="required" style="margin-top: 10px;">
+                                <option value="1" disabled="disabled" class="optrep" selected="selected">Select repartition</option>
+                                {% for item in listrepar %}
+                                        <option class="optClient" value="{{item.Repartition}}"></option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="col-lg-6">
+                            Pax : <input type="text" name="pax" class="form-control pax" placeholder="Pax">
+                            Heure : <input type="text" name="heure" class="form-control heure" placeholder="Heure">
+                            
+                        </div> #}
+                        {% for item in listrepar %}
+                            <div class="col-lg-8">
+                                <input type="text" name="libelle" class="form-control libelle" placeholder="Libellé" value="{{item.Repartition}}" readonly> 
+                            </div>
+                            <div class="col-lg-4 text-center">
+                                <input class="form-check-input checklibelle" type="checkbox" value="{{item.Repartition}}" id="checklibelle">
+                            </div>
+                        {% endfor %}    
+                    </div>
+                </div>
+
+            </div>
+           
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-success btnajoutercarteadd" data-id={{lstRep}}>Ajouter</button>
+                <button type="button" class="btn btn-danger">Fermer</button>
+            </div>
+          

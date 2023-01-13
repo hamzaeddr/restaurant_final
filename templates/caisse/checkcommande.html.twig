@@ -1,0 +1,210 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #0A2558 !important;">
+    <div class="container ">
+   
+            <div class="col-lg-7 text-center">
+            {# {% set break = false %} #}
+             {% for item in rep %}
+                <h1 style="font-weight: 700;color:white;">{{item.Repartition.Repartition}}</h1>
+                {# {% set break = true %} #}
+                 {% endfor %}
+            </div>
+           
+            <div class="col-lg-8 text-left">
+                    <input class="form-control mr-sm-2 searchC" type="search" id="searchC" placeholder="Search" aria-label="Search" style="width: 50%;height: 2.8rem!important;">
+            </div>
+        
+    </div>
+</nav>
+
+<section class="home-section " style="height: 84vh;left:0 !important;width:100%;">
+   
+
+    <div class="home-content" style="padding-top:30px;">
+        
+
+        <div class="sales-boxes" style="height: 81vh !important;">
+            <div class="recent-sales box" style="height: 81vh !important;">
+         
+                        <div class="sales-details" >
+                            <table class="table_ tabrowC" style="font-size: small;overflow-x: hidden !important;" id="rowClick">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            ID TICKET
+                                        </th>
+                                        <th>
+                                            DATE TICKET
+                                        </th>
+                                        <th>
+                                            HEURE TICKET
+                                        </th>
+                                        <th>
+                                            ID CLIENT
+                                        </th>
+                                        <th>
+                                            CLIENT
+                                        </th>
+                                        <th>
+                                            SOLDE
+                                        </th>
+                                        <th>
+                                            MONTANT TICKET
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody class="tbodycarte" style="max-height: 55rem !important;overflow-x: hidden !important;">
+                                  {% for item in listO %}
+                                    <tr>
+                                        <td scope="col" hidden>{{item.id}}</td>
+                                        <td scope="col">{{item.IdOperation}}</td>
+                                        <td scope="col">{{item.DateOperation | date('Y-m-d')}}</td>
+                                        <td scope="col">{{item.HeureOperation | date('Y-m-d')}}</td>
+                                        <td scope="col">{{item.IdAcheteur}}</td>
+                                        <td scope="col">{{item.NomAcheteur}}</td>
+                                        <td scope="col">{{item.SoldeAp}}</td>
+                                        <td scope="col">{{item.SoldeAv - item.SoldeAp}}</td>
+                                      </tr>
+                                    {% endfor %}
+                                    
+                                
+                                </tbody>
+                            </table>
+                        </div>
+                <div>
+            </div>
+
+            </div>
+            <div class="top-sales box detailcommandeC" style="height:81vh">
+                {# <div class="infoTicket">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <label >Operation</label>
+                            <input type="text" class="form-control" id="" placeholder="" value="Ticket XXXXXX" readonly>
+                        </div>
+                        <div class="col-lg-6">
+                            <label >Date / Heure</label>
+                            <input type="text" class="form-control" id="" placeholder="" value="" readonly>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-lg-12">
+                            <label >Client</label>
+                            <input type="text" class="form-control" id="" placeholder="" value="xxxxxxxx - xxxxxxx" readonly>
+                        </div>
+                    </div>
+                </div>
+                <br><br>
+                <div class="title">
+                    <table class="table_ tabrow2" style="font-size: small;">
+                        <tbody class='tbodyC border-0' style="height:35rem !important;max-height:35rem !important">
+                           
+                        </tbody>
+                    </table>
+                </div>
+                <div class="" >
+
+                    <div class="row mt-3">
+                        <div class="col-lg-6">
+                            <input type="text" class="form-control" id="" placeholder="" value="xx" readonly>
+                        </div>
+                        <div class="col-lg-6">
+                            <input type="text" class="form-control" id="" placeholder="" value="xxx" readonly>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-lg-12">
+                            <input type="button" class="form-control btn btn-success" style="height: 5rem !important;font-size: 25px;font-weight: 600;" value="Imprimer Ticket" >
+                        </div>
+                    </div>
+
+                </div> #}
+                
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+    <div class="modal modalrecharge" id="btnrecharger" >
+      
+        <div class="modal-dialog " >
+          <div class="modal-content text-center" style="margin-top:50%"> 
+
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Recharge</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body modif-modal">
+                <div class="popuprecharge">
+                    <div class="col-lg-8" style="font-size: 13px; font-weight: 700;margin: -20px 58px ;">
+                        <p> 
+                             <div class="input-group">
+                                 <span class="input-group-text">ID Recharge</span>
+                                 <input type="text" class="form-control idrechargeC" value="" >
+                             </div>
+                        </p> 
+                        <p>
+                             <div class="input-group">
+                                 <span class="input-group-text">Nom</span>
+                                 <input type="text" aria-label="First name" class="form-control NPro" value="" >
+                             </div>
+                        </p>  
+                        <p>
+                             <div class="input-group">
+                                 <span class="input-group-text">Prenom</span>
+                                 <input type="text" aria-label="First name" class="form-control"  value="" >
+                             </div>
+                        </p>  
+                        <p>
+                             <div class="input-group">
+                                 <span class="input-group-text">ID Etudiant</span>
+                                 <input type="text" aria-label="First name" class="form-control" value="" >
+                             </div>
+                        </p>
+                        <p>
+                            <div class="input-group">
+                                <span class="input-group-text">Montant</span>
+                                <input type="text" aria-label="First name" class="form-control" value="" >
+                            </div>
+                       </p>
+     
+                       
+     
+                     </div>
+                </div>
+            </div>
+           
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">annuler</button>
+                <button type="button" class="btn btn-success btnvaliderrecharge" data-id="">valider</button>
+              </div>
+          </div>
+        </div>
+    
+    </div>
+
+<footer style="height:9vh;width:99%">
+<div class="row text-center pt-4">
+    <div class="col-lg-4 m-auto">
+        <input class="btn btn-success rechargeC" type="button" value="recharge" style="height: 50px;width: 230px;">
+        <input class="btn btn-danger returnMenu" type="button" value="Fermer" style="height: 50px;width: 230px;">
+         {# <a class="btn btn-success creerproduit" style="height: 50px;width: 230px;"> <span>Recharge</span></a> #}
+    </div>
+</div>
+</footer>
+<script>
+    const searchInput= document.getElementById("searchC");
+    const rows= document.querySelectorAll(".tbodycarte tr");
+
+    searchInput.addEventListener("keyup" , function(event){
+        const q= event.target.value.toLowerCase();
+        rows.forEach((row)=>{
+            row.querySelector("td:nth-child(2)").textContent.toLowerCase().startsWith(q) ? (row.style.display='') : (row.style.display ='none')
+        });
+    });
+</script>
+{% endblock %}

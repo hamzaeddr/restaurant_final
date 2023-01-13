@@ -1,0 +1,18 @@
+{% for item in lstProduit %}
+    <tr>
+        <td hidden>{{item.id}}</td>
+        <td data-id="{{item.id}}">{{item.IdProduit}}</td>
+        <td>{{item.Produit}}</td>
+        
+       {% for iteme in item.ProduitTarifs %} 
+       {% if iteme.Tarif.id == "1"  %}
+        <td>{{iteme.TarifTtc}}</td>
+        
+        {% endif %}
+ {% endfor %}
+
+        <td><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
+        <td><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
+        <td><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
+    </tr>
+{% endfor %}

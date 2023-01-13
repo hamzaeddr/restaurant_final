@@ -1,0 +1,31 @@
+{% for item in list %}
+ 
+ <div class="col-lg-10" style="font-size: 13px; font-weight: 700;margin: -20px 25px ;">
+                   <p> 
+                        <div class="input-group">
+                            <span class="input-group-text">ID S.Famille</span>
+                            <input type="text" id="Sidfamille" aria-label="First name" class="form-control idsfmodif" value="{{item.IDFamilleSousC}}" readonly>
+                        </div>
+                   </p> 
+                   <p>
+                        <div class="input-group">
+                            <span class="input-group-text">Famille</span>
+                           
+                              <input type="text" id="sfamille" aria-label="First name" class="form-control idfmodif" value="{{item.FamilleC.FamilleC}}" readonly>
+                        </div>
+                   </p>  
+                   <p>
+                        <div class="input-group">
+                            <span class="input-group-text">Sous Famille</span>
+                            <input type="text" id="sousfamille" aria-label="First name" value="{{item.FamilleSousC}}" class="form-control sfmodif" >
+                        </div>
+                   </p>  
+                   <p>
+                        <div class="input-group">
+                            <span class="input-group-text">Nom Arabe</span>
+                            <input type="text" id="snarabe" aria-label="First name" value="{{item.SArabeC}}" class="form-control famodif" >
+                        </div>
+                   </p>
+                   <p>visible : <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></p>
+                </div>
+ {% endfor %}

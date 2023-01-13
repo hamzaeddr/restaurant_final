@@ -1,0 +1,11 @@
+
+{% for item in lstFamille %}
+
+      <tr>
+                                  <td>{{item.id_famille_c}}</td>
+                                  <td>{{item.famille_c}}</td>
+                                  <td>{{item.type_famille}} </td>
+                                  <td>{{item.farabe_c}}</td>
+                                  <td><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
+                              </tr>
+ {% endfor %}

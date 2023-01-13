@@ -1,0 +1,248 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello IndexController!{% endblock %}
+
+{% block body %}
+
+   <style>
+    html{
+    box-sizing: border-box;
+    font-size: 62.5%;
+  }
+  .container {
+    max-width: 100%;
+    margin: 0 auto;
+  
+  }
+#pl{
+   position: absolute;
+  top:45%;
+  left: 50%;
+  margin-top: 100px;
+  transform: translate(-50%,-50%);
+}
+#logo{
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+#pm{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: 250px;
+  transform: translate(-50%,-50%);
+  padding: 0.5rem 2rem;
+  border: 1px solid lightslategray;
+  border-radius: 2rem;
+  font-size: 25px;
+  font-family: "Tahoma", "Geneva", serif;
+  width: 700px;
+  text-align: center;
+
+
+}
+#valider{
+  position: absolute;
+  top: 87%;
+  left: 40%;
+  transform: translate(-50%,-50%);
+  padding: 0.5rem 2rem;
+  size: 80px !important;
+
+}
+#annulee{
+  position: absolute;
+  top: 87%;
+  left: 698px;
+  transform: translate(-50%,-50%);
+  padding: 0.5rem 2rem;
+}
+.button{
+  display: flex;
+  justify-content: space-between;
+  bottom: 10px;
+  width: 100%;
+  
+}
+
+.container2 {
+	display: grid;
+	grid-template-columns: [col1] 30% [col2] 30% [col3] 30%;
+	grid-gap: 10px;
+	grid-template-rows: [row1] 50% [row2] 50%;
+	text-align: center;
+	color: #FFF;
+  padding: 15px;
+}
+
+.grid-cell-1 {
+	background-color: #658db5;
+	padding: 15px;
+	border-radius: 6px;
+}
+
+.grid-cell-2 {
+	background-color: #658db5;
+	padding: 15px;
+	border-radius: 6px;
+}
+
+.grid-cell-3 {
+	background-color: #658db5;
+	padding: 15px;
+	border-radius: 6px;
+}
+
+.grid-cell-4 {
+	background-color: #658db5;
+	padding: 25px;
+	border-radius: 6px;
+}
+
+.grid-cell-5 {
+	background-color: #658db5;
+	padding: 15px;
+	border-radius: 6px;
+}
+.grid-cell-6 {
+	background-color: #658db5;
+	padding: 15px;
+	border-radius: 6px;
+}
+</style>
+  <head>
+    <link rel="stylesheet" href="css/index.css">
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+</head>
+<body>
+  <div class="container">
+  <h1 style="font-size: 30px; text-align: center; padding: 10px; letter-spacing: 3px; background-color: #9932CC; margin: auto; color: white;">L'Casis University Restaurant - Rabat</h1>
+    <a ><div id="logo" style="content:url({{ asset('img/LCasis.png') }});" class="navbtn settD Spresent"> </div></a>
+    <a ><div id="pl" onclick="location.href=href='{{ path('choice', {'carte': carte, 'borne':borne}) }}'" methode="post"
+     style="content:url({{ asset('img/padlockverifi.png') }});" class="navbtn settD Spresent"> </div></a>
+
+                          {% for user in userinfo %}
+                          {% for sold in solde %}
+
+<h2 id="pm" class="border border-info rounded">Name : {{ user.Name }} - {{ sold.SOLDE }} Dh</h2>
+{% endfor %}
+{% endfor %}
+<div>
+<button onclick="location.href=href='{{ path("destroy") }}'"  id="annulee" type="button" class="btn btn-outline-danger btn-rounded waves-effect btn-lg"><i style="font-size:17px;" class="fas fa-train pr-2"
+      aria-hidden="true"><i class="material-icons" style="font-size:17px;">exit_to_app</i>Quiter</button>
+<button onclick="NewTab()" style="position: absolute;margin: 0 auto;left: 155px;" id="annulee" type="button" class="btn btn-outline-dark btn-rounded waves-effect btn-lg"><i style="font-size:17px;" class="fas fa-train pr-2"
+      aria-hidden="true"></i>Relevé</button>
+<button onclick="location.href=href='{{ path("bornevalide") }}'" style="position: absolute;margin: 0 auto;top: 931px;left: 688px;" id="annulee" type="button" class="btn btn-outline-info btn-rounded waves-effect btn-lg"><i style="font-size:17px;" class="fas fa-train pr-2"
+      aria-hidden="true"></i>Autre Prestation</button>
+      <button type="button" style="position: absolute;bottom: 118px;margin: 0 auto;left: 269;" id="recharge" class="btn btn-outline-warning btn-rounded waves-effect btn-lg"><i class="material-icons" style="font-size:17px;">attach_money</i>
+Recharge</button>
+</div>
+  </div>
+  
+   <div class="modal " id="btnmodifercarte" style="margin-left: 198px;margin-top: 116px;">
+        <div class="modal-dialog " >
+            <div class="modal-content " style="margin-top: 50%;width: 60rem;margin-left: -250px;"> 
+
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Recharge</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                    <div class="modal-body ">
+               <div class="container2">
+
+                  <div id="money" class="grid-cell-1">100</div>
+                  <div id="money" class="grid-cell-2">250</div>
+                  <div id="money" class="grid-cell-3">500</div>
+                  <div id="money"  class="grid-cell-4">1000</div>
+                  <div id="money"  class="grid-cell-5">1500</div>
+                  <div id="money"  class="grid-cell-6">2000</div>
+                                                      
+                  </div><!--Container-->
+                  <br>
+                  <h2 style="text-align:center;" id="total"  class="border border-info rounded">0 - DH </h2>
+
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger btnfermerpro" class="btn-close" data-bs-dismiss="modal">Annuler</button>
+                <button type="button" class="btn btn-success btnfermerpro" id="confirmer">Confirmer</button>
+            </div>
+
+                 
+
+            </div>   
+        </div>
+    </div>
+<script>
+
+    function NewTab() {
+           myWindow = window.open(
+                          "/releve","", "width=100,height=50");
+                          setTimeout(function(){
+                                myWindow.close();
+                               }, 8000);
+        }
+
+    function Recharge(mantantx) {
+       var url = '{{path('recharge',{'mantant' :'mantantx' })}}';
+                  url = url.replace("mantantx", mantantx);
+                 myWindowr =  window.open(url ,"", "width=100,height=50");
+           
+                          setTimeout(function(){
+                                myWindowr.close();
+                                $('#btnmodifercarte').modal('close');
+
+                               }, 8000);
+
+        }
+
+        $(document).ready(function() {
+
+let mantant = [];
+
+ $('body #recharge').on('click',function () {
+                 
+
+               $('#btnmodifercarte').modal('toggle');
+               $('#btnmodifercarte').modal('show');
+               
+                 
+            }); 
+
+
+ $('body #money').on('click',function () {
+                 var mant = $(this).html();
+                 mant = parseInt(mant);
+                 mantant.pop();
+                 mantant.push(mant);
+
+
+               $('#total').html(mant + '- DH');
+               $('#btnmodifercarte').modal('show');
+               
+            }); 
+
+
+
+ $('body #confirmer').on('click',function () {
+  {# var url = '{{path('recharge',{'mantant' :'mantantx' })}}';
+                  url = url.replace("mantantx", mantant[0]);
+                    window.open(url, '_blank'); #}
+                    Recharge(mantant[0]);
+
+            }); 
+
+        
+            
+            }); 
+</script>
+    
+      </body>
+      
+      
+      {% endblock %}
+  
